@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect width="720" height="520" fill="#fff"/>
+
+  <!-- 中心 -->
+  <rect x="260" y="20" width="200" height="50" rx="6" fill="#333" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="42" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Harness Engineering</text>
+  <text x="360" y="60" text-anchor="middle" font-size="11" fill="#ccc">驾驭工程</text>
+
+  <!-- 四条竖线到CIVR -->
+  <line x1="290" y1="70" x2="110" y2="105" stroke="#999" stroke-width="1.2"/>
+  <line x1="330" y1="70" x2="290" y2="105" stroke="#999" stroke-width="1.2"/>
+  <line x1="390" y1="70" x2="430" y2="105" stroke="#999" stroke-width="1.2"/>
+  <line x1="430" y1="70" x2="610" y2="105" stroke="#999" stroke-width="1.2"/>
+
+  <!-- C 约束 -->
+  <rect x="20" y="105" width="180" height="38" rx="5" fill="#f5f5f5" stroke="#333" stroke-width="1.5"/>
+  <text x="110" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#333">C 约束 Constrain</text>
+
+  <rect x="20" y="155" width="180" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+  <text x="110" y="177" text-anchor="middle" font-size="12" fill="#555">权限分级</text>
+  <text x="110" y="197" text-anchor="middle" font-size="12" fill="#555">工具裁剪</text>
+  <text x="110" y="217" text-anchor="middle" font-size="12" fill="#555">范围锁定</text>
+  <text x="110" y="237" text-anchor="middle" font-size="12" fill="#555">不可逆操作拦截</text>
+  <text x="110" y="257" text-anchor="middle" font-size="12" fill="#555">Hook/Pre-commit</text>
+  <text x="110" y="275" text-anchor="middle" font-size="10" fill="#aaa">第3章</text>
+
+  <!-- I 告知 -->
+  <rect x="210" y="105" width="160" height="38" rx="5" fill="#f5f5f5" stroke="#333" stroke-width="1.5"/>
+  <text x="290" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#333">I 告知 Inform</text>
+
+  <rect x="210" y="155" width="160" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+  <text x="290" y="177" text-anchor="middle" font-size="12" fill="#555">CLAUDE.md</text>
+  <text x="290" y="197" text-anchor="middle" font-size="12" fill="#555">上下文分层加载</text>
+  <text x="290" y="217" text-anchor="middle" font-size="12" fill="#555">隐性知识外化</text>
+  <text x="290" y="237" text-anchor="middle" font-size="12" fill="#555">负面上下文</text>
+  <text x="290" y="257" text-anchor="middle" font-size="12" fill="#555">MCP · Skills</text>
+  <text x="290" y="275" text-anchor="middle" font-size="10" fill="#aaa">第4章</text>
+
+  <!-- V 验证 -->
+  <rect x="380" y="105" width="160" height="38" rx="5" fill="#f5f5f5" stroke="#333" stroke-width="1.5"/>
+  <text x="460" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#333">V 验证 Verify</text>
+
+  <rect x="380" y="155" width="160" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+  <text x="460" y="177" text-anchor="middle" font-size="12" fill="#555">四层验证</text>
+  <text x="460" y="197" text-anchor="middle" font-size="12" fill="#555">双翻译法</text>
+  <text x="460" y="217" text-anchor="middle" font-size="12" fill="#555">Spec驱动开发</text>
+  <text x="460" y="237" text-anchor="middle" font-size="12" fill="#555">测试纪律</text>
+  <text x="460" y="257" text-anchor="middle" font-size="12" fill="#555">Diff审查五步法</text>
+  <text x="460" y="275" text-anchor="middle" font-size="10" fill="#aaa">第5章</text>
+
+  <!-- R 校准 -->
+  <rect x="550" y="105" width="160" height="38" rx="5" fill="#f5f5f5" stroke="#333" stroke-width="1.5"/>
+  <text x="630" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#333">R 校准 Redirect</text>
+
+  <rect x="550" y="155" width="160" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+  <text x="630" y="177" text-anchor="middle" font-size="12" fill="#555">三层诊断</text>
+  <text x="630" y="197" text-anchor="middle" font-size="12" fill="#555">停止信号</text>
+  <text x="630" y="217" text-anchor="middle" font-size="12" fill="#555">换思路/换模型</text>
+  <text x="630" y="237" text-anchor="middle" font-size="12" fill="#555">新对话交接</text>
+  <text x="630" y="257" text-anchor="middle" font-size="12" fill="#555">翻车→规则闭环</text>
+  <text x="630" y="275" text-anchor="middle" font-size="10" fill="#aaa">第6章</text>
+
+  <!-- 底部：三层 -->
+  <line x1="60" y1="310" x2="660" y2="310" stroke="#ddd" stroke-width="0.8"/>
+
+  <rect x="20" y="325" width="220" height="55" rx="4" fill="#f0f0f0" stroke="#bbb" stroke-width="1"/>
+  <text x="130" y="348" text-anchor="middle" font-size="13" font-weight="600" fill="#444">个人层</text>
+  <text x="130" y="368" text-anchor="middle" font-size="11" fill="#777">判断力 · 纪律 · 习惯</text>
+
+  <rect x="250" y="325" width="220" height="55" rx="4" fill="#f0f0f0" stroke="#bbb" stroke-width="1"/>
+  <text x="360" y="348" text-anchor="middle" font-size="13" font-weight="600" fill="#444">工具层</text>
+  <text x="360" y="368" text-anchor="middle" font-size="11" fill="#777">Rules · Skills · Hook · MCP</text>
+
+  <rect x="480" y="325" width="220" height="55" rx="4" fill="#f0f0f0" stroke="#bbb" stroke-width="1"/>
+  <text x="590" y="348" text-anchor="middle" font-size="13" font-weight="600" fill="#444">团队层</text>
+  <text x="590" y="368" text-anchor="middle" font-size="11" fill="#777">流程 · 制度 · 所有权</text>
+
+  <!-- 最底部公式 -->
+  <text x="360" y="415" text-anchor="middle" font-size="14" font-weight="600" fill="#333">结果 = 模型能力 × Agent架构 × 你的驾驭方式</text>
+
+  <!-- 闭环标注 -->
+  <rect x="140" y="440" width="440" height="60" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+  <text x="360" y="465" text-anchor="middle" font-size="12" fill="#555">每一轮CIVR循环同时产出两样东西：代码交付给项目，能力留在你身上。</text>
+  <text x="360" y="485" text-anchor="middle" font-size="12" fill="#555">审查AI代码 → 学到新东西 → 下次约束更精确 → 产出更好 → 又学到更多</text>
+</svg>

@@ -1,0 +1,135 @@
+<!--
+  来源：《驾驭AI编程》CIVR 框架综合（第 3-6 章原则适配 Cursor 格式）
+  用法：复制到项目 .cursor/rules/ 目录下，或作为 .cursorrules 放在项目根目录
+  更新：根据项目需求修改，删除不适用的部分
+  说明：Cursor 使用 rules 文件管理 AI 行为，原理与 CLAUDE.md 相同
+-->
+
+# Project Rules
+
+## Identity
+
+Project: [项目名称]
+Stack: [语言] / [框架] / [数据库]
+Description: [一句话描述]
+
+## System Architecture
+
+<!--
+  30 秒心智模型（第 4 章）：
+  告诉 AI 系统如何运转，比写 10 条具体规则更有效
+-->
+
+```
+[入口] → [核心服务] → [数据库]
+                    ↓
+            [异步处理] → [外部服务]
+```
+
+Key constraints:
+- [关键架构约束，如"通知可以丢失，订单不能丢失"]
+- [已否决的技术选型及原因]
+
+## Build Commands
+
+```
+install: [安装命令]
+dev:     [开发命令]
+test:    [测试命令]
+lint:    [lint 命令]
+build:   [构建命令]
+```
+
+## Code Style
+
+- Language: [语言及版本]
+- Naming: [命名规范]
+- Error handling: [错误处理模式]
+- Logging: [日志规范]
+- Max function length: [行数上限]
+- Max file length: [行数上限]
+
+## Architecture Boundaries
+
+### Allowed
+
+- Read and write files in `src/features/`, `src/components/`, `src/utils/`
+- Create new files following existing directory structure
+- Run tests and lint commands
+
+### Read-Only (do not modify)
+
+- `src/payment/` — 支付核心模块
+- `src/auth/` — 认证模块
+- `config/` — 配置文件
+
+### Forbidden
+
+- `.env*` — 环境变量，禁止访问
+- `migrations/` — 数据库迁移，禁止创建或修改
+- Do not install new dependencies without confirmation
+- Do not modify CI/CD configuration files
+
+## Verification Rules (Chapter 5)
+
+<!--
+  这些规则来自第 5 章 5.9 的验证纪律
+  Anthropic 在 10 万行 C 代码项目中验证了"不许改测试"规则的必要性
+-->
+
+1. NEVER delete or modify existing test cases unless the requirement itself changed
+2. When tests fail, fix the source code, NOT the tests
+3. New features MUST include tests
+4. All code must compile/run successfully
+5. All existing tests must pass
+6. Do not claim "done" without providing verification output (test results, screenshots, logs)
+
+## Coding Constraints (Chapter 3)
+
+<!--
+  每条约束来自真实踩坑，给理由让 AI 遇到边界场景时能自己判断
+-->
+
+Forbidden patterns:
+- No `any` type in TypeScript (fix the type properly)
+- No hardcoded URLs, ports, API keys, or secrets
+- No `console.log` in committed code (use project logger)
+- No `// @ts-ignore` or `// @ts-expect-error`
+- No direct DOM manipulation in framework components
+- No `eval()` or `new Function()`
+
+Required patterns:
+- All API calls go through the API layer, not directly in components
+- Error handling on every external call (API, DB, file I/O)
+- Input validation on all user-facing endpoints
+
+## Change Scope Control (Chapter 6)
+
+<!--
+  校准时最烦人的模式：你让 AI 改 A，它"顺手"改了 B 和 C（第 6 章 6.2）
+-->
+
+- Only modify files directly related to the current task
+- Do not "improve" or refactor code you were not asked to touch
+- Do not change function signatures in other modules unless explicitly requested
+- If a refactor is needed, ask first before making changes
+
+## Context Tips (Chapter 4)
+
+<!--
+  上下文工程原则：少即是多，给 AI 最小有效上下文
+-->
+
+- When unsure about project conventions, read existing code in the same directory first
+- Reference existing files for style: "follow the pattern in [file]"
+- For data formats, look at existing API response examples in `docs/` or test fixtures
+- If you need information not available in the codebase, ask rather than guess
+
+## Security (Chapter 5)
+
+- Parameterized queries only, no string concatenation for SQL
+- No `innerHTML` with user input (XSS risk)
+- No `shell=True` with user-provided input (command injection risk)
+- No `verify=False` for SSL (man-in-the-middle risk)
+- Secrets in environment variables, never in code
+- Authentication required on all API routes unless explicitly public

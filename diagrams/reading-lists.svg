@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect width="900" height="560" fill="#fff"/>
+
+  <!-- 标题 -->
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#222">推荐阅读 · 四张书单</text>
+  <text x="450" y="60" text-anchor="middle" font-size="13" fill="#888">软件工程经典 · AI 与机器学习 · Harness Engineering · 延伸思考</text>
+
+  <!-- 资源类型图例 -->
+  <g font-size="11">
+    <rect x="280" y="78" width="36" height="18" rx="3" fill="#222"/>
+    <text x="298" y="91" text-anchor="middle" font-weight="700" fill="#fff">书</text>
+    <text x="322" y="91" text-anchor="start" fill="#666">著作</text>
+
+    <rect x="380" y="78" width="36" height="18" rx="3" fill="#666"/>
+    <text x="398" y="91" text-anchor="middle" font-weight="700" fill="#fff">论文</text>
+    <text x="422" y="91" text-anchor="start" fill="#666">学术</text>
+
+    <rect x="480" y="78" width="36" height="18" rx="3" fill="#fff" stroke="#888" stroke-width="1"/>
+    <text x="498" y="91" text-anchor="middle" font-weight="700" fill="#444">博客</text>
+    <text x="522" y="91" text-anchor="start" fill="#666">在线文章</text>
+
+    <rect x="600" y="78" width="36" height="18" rx="3" fill="#fff" stroke="#888" stroke-width="1" stroke-dasharray="2 2"/>
+    <text x="618" y="91" text-anchor="middle" font-weight="700" fill="#444">视频</text>
+    <text x="642" y="91" text-anchor="start" fill="#666">在线课程</text>
+  </g>
+
+  <!-- 4 列布局：x=20/240/460/680，每列宽 200，间距 20 -->
+
+  <!-- ============ 列 1：软件工程经典 ============ -->
+  <rect x="20" y="115" width="200" height="40" rx="4" fill="#3a4a5a" stroke="#1a2a3a" stroke-width="1"/>
+  <text x="120" y="141" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">软件工程经典</text>
+
+  <rect x="20" y="155" width="200" height="370" fill="#fafafa" stroke="#999" stroke-width="1"/>
+
+  <!-- 1: 人月神话 -->
+  <rect x="32" y="170" width="32" height="16" rx="3" fill="#222"/>
+  <text x="48" y="182" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="72" y="182" text-anchor="start" font-size="13" font-weight="700" fill="#222">人月神话</text>
+  <text x="32" y="200" text-anchor="start" font-size="11" fill="#777">Frederick Brooks</text>
+
+  <!-- 2: 设计模式 -->
+  <rect x="32" y="218" width="32" height="16" rx="3" fill="#222"/>
+  <text x="48" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="72" y="230" text-anchor="start" font-size="13" font-weight="700" fill="#222">设计模式</text>
+  <text x="32" y="248" text-anchor="start" font-size="11" fill="#777">GoF (Gang of Four)</text>
+
+  <!-- 3: 重构 -->
+  <rect x="32" y="266" width="32" height="16" rx="3" fill="#222"/>
+  <text x="48" y="278" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="72" y="278" text-anchor="start" font-size="13" font-weight="700" fill="#222">重构</text>
+  <text x="32" y="296" text-anchor="start" font-size="11" fill="#777">Martin Fowler</text>
+
+  <!-- 4: 持续交付 -->
+  <rect x="32" y="314" width="32" height="16" rx="3" fill="#222"/>
+  <text x="48" y="326" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="72" y="326" text-anchor="start" font-size="13" font-weight="700" fill="#222">持续交付</text>
+  <text x="32" y="344" text-anchor="start" font-size="11" fill="#777">Humble · Farley</text>
+
+  <!-- 5: 凤凰项目 -->
+  <rect x="32" y="362" width="32" height="16" rx="3" fill="#222"/>
+  <text x="48" y="374" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="72" y="374" text-anchor="start" font-size="13" font-weight="700" fill="#222">凤凰项目</text>
+  <text x="32" y="392" text-anchor="start" font-size="11" fill="#777">Gene Kim 等</text>
+
+  <line x1="32" y1="490" x2="208" y2="490" stroke="#ddd" stroke-width="1"/>
+  <text x="120" y="510" text-anchor="middle" font-size="11" font-style="italic" fill="#888">夯实基本功</text>
+
+  <!-- ============ 列 2：AI 与机器学习 ============ -->
+  <rect x="240" y="115" width="200" height="40" rx="4" fill="#5a4a3a" stroke="#3a2a1a" stroke-width="1"/>
+  <text x="340" y="141" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">AI 与机器学习</text>
+
+  <rect x="240" y="155" width="200" height="370" fill="#fafafa" stroke="#999" stroke-width="1"/>
+
+  <!-- 1: Attention论文 -->
+  <rect x="252" y="170" width="32" height="16" rx="3" fill="#666"/>
+  <text x="268" y="182" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">论文</text>
+  <text x="292" y="182" text-anchor="start" font-size="13" font-weight="700" fill="#222">Attention Is All</text>
+  <text x="292" y="195" text-anchor="start" font-size="13" font-weight="700" fill="#222">You Need</text>
+  <text x="252" y="213" text-anchor="start" font-size="11" fill="#777">Vaswani et al., 2017</text>
+
+  <!-- 2: ReAct论文 -->
+  <rect x="252" y="231" width="32" height="16" rx="3" fill="#666"/>
+  <text x="268" y="243" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">论文</text>
+  <text x="292" y="243" text-anchor="start" font-size="13" font-weight="700" fill="#222">ReAct</text>
+  <text x="252" y="261" text-anchor="start" font-size="11" fill="#777">Yao et al., 2022</text>
+
+  <!-- 3: 动手学深度学习 -->
+  <rect x="252" y="279" width="32" height="16" rx="3" fill="#222"/>
+  <text x="268" y="291" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="292" y="291" text-anchor="start" font-size="13" font-weight="700" fill="#222">动手学深度学习</text>
+  <text x="252" y="309" text-anchor="start" font-size="11" fill="#777">李沐 等</text>
+
+  <!-- 4: Karpathy视频 -->
+  <rect x="252" y="327" width="32" height="16" rx="3" fill="#fff" stroke="#666" stroke-width="1" stroke-dasharray="2 2"/>
+  <text x="268" y="339" text-anchor="middle" font-size="10" font-weight="700" fill="#333">视频</text>
+  <text x="292" y="339" text-anchor="start" font-size="13" font-weight="700" fill="#222">从零构建 GPT</text>
+  <text x="252" y="357" text-anchor="start" font-size="11" fill="#777">Karpathy YouTube</text>
+
+  <line x1="252" y1="490" x2="428" y2="490" stroke="#ddd" stroke-width="1"/>
+  <text x="340" y="510" text-anchor="middle" font-size="11" font-style="italic" fill="#888">理解 AI 是什么</text>
+
+  <!-- ============ 列 3：Harness Engineering ============ -->
+  <rect x="460" y="115" width="200" height="40" rx="4" fill="#5a3a3a" stroke="#3a1a1a" stroke-width="1"/>
+  <text x="560" y="141" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Harness Engineering</text>
+
+  <rect x="460" y="155" width="200" height="370" fill="#fafafa" stroke="#999" stroke-width="1"/>
+
+  <!-- 1: OpenAI Codex -->
+  <rect x="472" y="170" width="32" height="16" rx="3" fill="#fff" stroke="#888" stroke-width="1"/>
+  <text x="488" y="182" text-anchor="middle" font-size="10" font-weight="700" fill="#444">博客</text>
+  <text x="512" y="182" text-anchor="start" font-size="12" font-weight="700" fill="#222">Leveraging Codex</text>
+  <text x="472" y="200" text-anchor="start" font-size="11" fill="#777">OpenAI · 核心参考</text>
+
+  <!-- 2: Anthropic -->
+  <rect x="472" y="218" width="32" height="16" rx="3" fill="#fff" stroke="#888" stroke-width="1"/>
+  <text x="488" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#444">博客</text>
+  <text x="512" y="230" text-anchor="start" font-size="12" font-weight="700" fill="#222">Effective Harnesses</text>
+  <text x="472" y="248" text-anchor="start" font-size="11" fill="#777">Anthropic</text>
+
+  <!-- 3: Fowler -->
+  <rect x="472" y="266" width="32" height="16" rx="3" fill="#fff" stroke="#888" stroke-width="1"/>
+  <text x="488" y="278" text-anchor="middle" font-size="10" font-weight="700" fill="#444">博客</text>
+  <text x="512" y="278" text-anchor="start" font-size="12" font-weight="700" fill="#222">Harness Engineering</text>
+  <text x="472" y="296" text-anchor="start" font-size="11" fill="#777">Fowler · Bockeler</text>
+
+  <!-- 4: Kozyrkov -->
+  <rect x="472" y="314" width="32" height="16" rx="3" fill="#fff" stroke="#888" stroke-width="1"/>
+  <text x="488" y="326" text-anchor="middle" font-size="10" font-weight="700" fill="#444">博客</text>
+  <text x="512" y="326" text-anchor="start" font-size="12" font-weight="700" fill="#222">Supervise Code...</text>
+  <text x="472" y="344" text-anchor="start" font-size="11" fill="#777">Cassie Kozyrkov</text>
+
+  <!-- 5: Mirji -->
+  <rect x="472" y="362" width="32" height="16" rx="3" fill="#fff" stroke="#888" stroke-width="1"/>
+  <text x="488" y="374" text-anchor="middle" font-size="10" font-weight="700" fill="#444">博客</text>
+  <text x="512" y="374" text-anchor="start" font-size="12" font-weight="700" fill="#222">Build the Harness</text>
+  <text x="472" y="392" text-anchor="start" font-size="11" fill="#777">Vitthal Mirji</text>
+
+  <!-- 6: 12-Factor Agents -->
+  <rect x="472" y="410" width="32" height="16" rx="3" fill="#fff" stroke="#888" stroke-width="1"/>
+  <text x="488" y="422" text-anchor="middle" font-size="10" font-weight="700" fill="#444">博客</text>
+  <text x="512" y="422" text-anchor="start" font-size="12" font-weight="700" fill="#222">12-Factor Agents</text>
+  <text x="472" y="440" text-anchor="start" font-size="11" fill="#777">Dex Horthy</text>
+
+  <line x1="472" y1="490" x2="648" y2="490" stroke="#ddd" stroke-width="1"/>
+  <text x="560" y="510" text-anchor="middle" font-size="11" font-style="italic" fill="#888">本书的方法论源头</text>
+
+  <!-- ============ 列 4：延伸思考 ============ -->
+  <rect x="680" y="115" width="200" height="40" rx="4" fill="#3a5a3a" stroke="#1a3a1a" stroke-width="1"/>
+  <text x="780" y="141" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">延伸思考</text>
+
+  <rect x="680" y="155" width="200" height="370" fill="#fafafa" stroke="#999" stroke-width="1"/>
+
+  <!-- 1: 思考快与慢 -->
+  <rect x="692" y="170" width="32" height="16" rx="3" fill="#222"/>
+  <text x="708" y="182" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="732" y="182" text-anchor="start" font-size="13" font-weight="700" fill="#222">思考，快与慢</text>
+  <text x="692" y="200" text-anchor="start" font-size="11" fill="#777">Daniel Kahneman</text>
+
+  <!-- 2: 反脆弱 -->
+  <rect x="692" y="218" width="32" height="16" rx="3" fill="#222"/>
+  <text x="708" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="732" y="230" text-anchor="start" font-size="13" font-weight="700" fill="#222">反脆弱</text>
+  <text x="692" y="248" text-anchor="start" font-size="11" fill="#777">Nassim Taleb</text>
+
+  <!-- 3: 清单革命 -->
+  <rect x="692" y="266" width="32" height="16" rx="3" fill="#222"/>
+  <text x="708" y="278" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">书</text>
+  <text x="732" y="278" text-anchor="start" font-size="13" font-weight="700" fill="#222">清单革命</text>
+  <text x="692" y="296" text-anchor="start" font-size="11" fill="#777">Atul Gawande</text>
+
+  <line x1="692" y1="490" x2="868" y2="490" stroke="#ddd" stroke-width="1"/>
+  <text x="780" y="510" text-anchor="middle" font-size="11" font-style="italic" fill="#888">跳出技术看技术</text>
+
+  <!-- 底部 -->
+  <text x="450" y="548" text-anchor="middle" font-size="11" fill="#aaa">完整书单与推荐理由见附录 E</text>
+</svg>

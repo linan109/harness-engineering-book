@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="500" viewBox="0 0 520 500" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect width="520" height="500" fill="#fff"/>
+
+  <!-- 水面线 -->
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <text x="505" y="175" text-anchor="end" font-size="11" fill="#4a90d9">水面</text>
+
+  <!-- 冰山上方（浅色） -->
+  <polygon points="260,30 370,175 150,175" fill="#e8e8e8" stroke="#999" stroke-width="1.2"/>
+
+  <text x="260" y="80" text-anchor="middle" font-size="13" font-weight="600" fill="#555">AI擅长</text>
+  <text x="260" y="100" text-anchor="middle" font-size="12" fill="#777">代码生成</text>
+  <text x="260" y="118" text-anchor="middle" font-size="12" fill="#777">模式匹配</text>
+  <text x="260" y="136" text-anchor="middle" font-size="12" fill="#777">信息检索</text>
+  <text x="260" y="154" text-anchor="middle" font-size="12" fill="#777">语法修复</text>
+
+  <!-- 冰山下方（深色，更宽） -->
+  <polygon points="150,185 370,185 430,470 90,470" fill="#d0d0d0" stroke="#666" stroke-width="1.5"/>
+
+  <text x="260" y="222" text-anchor="middle" font-size="14" font-weight="700" fill="#333">人的护城河</text>
+
+  <line x1="150" y1="238" x2="370" y2="238" stroke="#aaa" stroke-width="0.8"/>
+
+  <text x="260" y="265" text-anchor="middle" font-size="13" font-weight="600" fill="#444">系统思维</text>
+  <text x="260" y="283" text-anchor="middle" font-size="11" fill="#666">模块边界、架构取舍、长期演进</text>
+
+  <line x1="160" y1="298" x2="360" y2="298" stroke="#bbb" stroke-width="0.5"/>
+
+  <text x="260" y="320" text-anchor="middle" font-size="13" font-weight="600" fill="#444">领域知识</text>
+  <text x="260" y="338" text-anchor="middle" font-size="11" fill="#666">业务规则、历史包袱、隐性约束</text>
+
+  <line x1="160" y1="353" x2="360" y2="353" stroke="#bbb" stroke-width="0.5"/>
+
+  <text x="260" y="375" text-anchor="middle" font-size="13" font-weight="600" fill="#444">工程判断力</text>
+  <text x="260" y="393" text-anchor="middle" font-size="11" fill="#666">该做什么、不该做什么、什么时候停</text>
+
+  <line x1="160" y1="408" x2="360" y2="408" stroke="#bbb" stroke-width="0.5"/>
+
+  <text x="260" y="432" text-anchor="middle" font-size="13" font-weight="600" fill="#444">跨界整合</text>
+  <text x="260" y="450" text-anchor="middle" font-size="11" fill="#666">需求翻译、团队协作、产品直觉</text>
+
+  <!-- 右侧标注 -->
+  <text x="420" y="100" text-anchor="start" font-size="11" fill="#999">可被替代</text>
+  <text x="420" y="116" text-anchor="start" font-size="11" fill="#999">进步最快</text>
+  <line x1="375" y1="105" x2="416" y2="105" stroke="#ccc" stroke-width="0.8"/>
+
+  <text x="440" y="330" text-anchor="start" font-size="11" fill="#999">不可替代</text>
+  <text x="440" y="346" text-anchor="start" font-size="11" fill="#999">价值最高</text>
+  <line x1="380" y1="335" x2="436" y2="335" stroke="#ccc" stroke-width="0.8"/>
+
+  <!-- 底部 -->
+  <text x="260" y="490" text-anchor="middle" font-size="12" fill="#aaa">水面上越来越薄，水面下才是你的护城河</text>
+</svg>

@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="700" viewBox="0 0 800 700" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect width="800" height="700" fill="#fff"/>
+
+  <!-- 标题 -->
+  <text x="400" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#222">AI 八大能力陷阱总图</text>
+  <text x="400" y="60" text-anchor="middle" font-size="13" fill="#888">从 5 个 AI 原理推出 8 个结构性陷阱，每个陷阱都对应一个 CIVR 动作</text>
+
+  <!-- 顶部色带图例：5 个原理 -->
+  <g font-size="12" fill="#444">
+    <rect x="40" y="80" width="14" height="14" fill="#7a8a9a"/>
+    <text x="60" y="92" text-anchor="start">下一 token 预测</text>
+
+    <rect x="180" y="80" width="14" height="14" fill="#9a8a6a"/>
+    <text x="200" y="92" text-anchor="start">训练数据</text>
+
+    <rect x="290" y="80" width="14" height="14" fill="#9a6a6a"/>
+    <text x="310" y="92" text-anchor="start">RLHF 讨好</text>
+
+    <rect x="410" y="80" width="14" height="14" fill="#7a6a8a"/>
+    <text x="430" y="92" text-anchor="start">上下文窗口</text>
+
+    <rect x="540" y="80" width="14" height="14" fill="#5a7a6a"/>
+    <text x="560" y="92" text-anchor="start">Agent 多步执行</text>
+  </g>
+
+  <!-- 4 列 × 2 行卡片网格 -->
+  <!-- 卡片宽 175，高 240，间距 16 -->
+  <!-- x: 40, 231, 422, 613 -->
+  <!-- y: 120, 376 -->
+
+  <!-- ============ 卡片 1：① Almost Right ============ -->
+  <rect x="40" y="120" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="40" y="120" width="175" height="22" rx="6" fill="#7a8a9a"/>
+  <rect x="40" y="134" width="175" height="8" fill="#7a8a9a"/>
+  <text x="127" y="136" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">下一 token 预测</text>
+
+  <text x="127" y="170" text-anchor="middle" font-size="22" font-weight="700" fill="#222">①</text>
+  <text x="127" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Almost Right</text>
+  <text x="127" y="212" text-anchor="middle" font-size="13" fill="#666">差一点就对了</text>
+
+  <line x1="60" y1="226" x2="195" y2="226" stroke="#ddd" stroke-width="1"/>
+
+  <text x="127" y="248" text-anchor="middle" font-size="12" fill="#444">95% 正确</text>
+  <text x="127" y="268" text-anchor="middle" font-size="12" fill="#444">边界条件失败</text>
+  <text x="127" y="288" text-anchor="middle" font-size="12" fill="#444">逻辑细微错误</text>
+
+  <rect x="80" y="310" width="95" height="28" rx="14" fill="#5a3a3a"/>
+  <text x="127" y="329" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">V 验证</text>
+
+  <!-- ============ 卡片 2：② The Unsaid ============ -->
+  <rect x="231" y="120" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="231" y="120" width="175" height="22" rx="6" fill="#9a8a6a"/>
+  <rect x="231" y="134" width="175" height="8" fill="#9a8a6a"/>
+  <text x="318" y="136" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">训练数据驱动</text>
+
+  <text x="318" y="170" text-anchor="middle" font-size="22" font-weight="700" fill="#222">②</text>
+  <text x="318" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#222">The Unsaid</text>
+  <text x="318" y="212" text-anchor="middle" font-size="13" fill="#666">没说的才致命</text>
+
+  <line x1="251" y1="226" x2="386" y2="226" stroke="#ddd" stroke-width="1"/>
+
+  <text x="318" y="248" text-anchor="middle" font-size="12" fill="#444">不问就动手</text>
+  <text x="318" y="268" text-anchor="middle" font-size="12" fill="#444">遗漏业务规则</text>
+  <text x="318" y="288" text-anchor="middle" font-size="12" fill="#444">缺隐性知识</text>
+
+  <rect x="271" y="310" width="95" height="28" rx="14" fill="#3a4a5a"/>
+  <text x="318" y="329" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">I 告知</text>
+
+  <!-- ============ 卡片 3：③ Frozen in Time ============ -->
+  <rect x="422" y="120" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="422" y="120" width="175" height="22" rx="6" fill="#9a8a6a"/>
+  <rect x="422" y="134" width="175" height="8" fill="#9a8a6a"/>
+  <text x="509" y="136" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">训练数据驱动</text>
+
+  <text x="509" y="170" text-anchor="middle" font-size="22" font-weight="700" fill="#222">③</text>
+  <text x="509" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Frozen in Time</text>
+  <text x="509" y="212" text-anchor="middle" font-size="13" fill="#666">知识冻结</text>
+
+  <line x1="442" y1="226" x2="577" y2="226" stroke="#ddd" stroke-width="1"/>
+
+  <text x="509" y="248" text-anchor="middle" font-size="12" fill="#444">推荐废弃 API</text>
+  <text x="509" y="268" text-anchor="middle" font-size="12" fill="#444">版本号过时</text>
+  <text x="509" y="288" text-anchor="middle" font-size="12" fill="#444">最佳实践陈旧</text>
+
+  <rect x="462" y="310" width="95" height="28" rx="14" fill="#3a4a5a"/>
+  <text x="509" y="329" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">I 告知</text>
+
+  <!-- ============ 卡片 4：④ The Yes-Man ============ -->
+  <rect x="613" y="120" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="613" y="120" width="175" height="22" rx="6" fill="#9a6a6a"/>
+  <rect x="613" y="134" width="175" height="8" fill="#9a6a6a"/>
+  <text x="700" y="136" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">RLHF 讨好本能</text>
+
+  <text x="700" y="170" text-anchor="middle" font-size="22" font-weight="700" fill="#222">④</text>
+  <text x="700" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#222">The Yes-Man</text>
+  <text x="700" y="212" text-anchor="middle" font-size="13" fill="#666">讨好本能</text>
+
+  <line x1="633" y1="226" x2="768" y2="226" stroke="#ddd" stroke-width="1"/>
+
+  <text x="700" y="248" text-anchor="middle" font-size="12" fill="#444">从不说"不确定"</text>
+  <text x="700" y="268" text-anchor="middle" font-size="12" fill="#444">自信地编造事实</text>
+  <text x="700" y="288" text-anchor="middle" font-size="12" fill="#444">从不质疑你</text>
+
+  <rect x="653" y="310" width="95" height="28" rx="14" fill="#5a3a3a"/>
+  <text x="700" y="329" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">V 验证</text>
+
+  <!-- ============ 卡片 5：⑤ Context Rot ============ -->
+  <rect x="40" y="376" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="40" y="376" width="175" height="22" rx="6" fill="#7a6a8a"/>
+  <rect x="40" y="390" width="175" height="8" fill="#7a6a8a"/>
+  <text x="127" y="392" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">有限上下文窗口</text>
+
+  <text x="127" y="426" text-anchor="middle" font-size="22" font-weight="700" fill="#222">⑤</text>
+  <text x="127" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Context Rot</text>
+  <text x="127" y="468" text-anchor="middle" font-size="13" fill="#666">上下文腐烂</text>
+
+  <line x1="60" y1="482" x2="195" y2="482" stroke="#ddd" stroke-width="1"/>
+
+  <text x="127" y="504" text-anchor="middle" font-size="12" fill="#444">遗忘早期指令</text>
+  <text x="127" y="524" text-anchor="middle" font-size="12" fill="#444">注意力衰减</text>
+  <text x="127" y="544" text-anchor="middle" font-size="12" fill="#444">输出自相矛盾</text>
+
+  <rect x="60" y="566" width="135" height="28" rx="14" fill="#4a4a5a"/>
+  <text x="127" y="585" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">I 告知 + R 校准</text>
+
+  <!-- ============ 卡片 6：⑥ Goldfish Memory ============ -->
+  <rect x="231" y="376" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="231" y="376" width="175" height="22" rx="6" fill="#7a6a8a"/>
+  <rect x="231" y="390" width="175" height="8" fill="#7a6a8a"/>
+  <text x="318" y="392" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">有限上下文窗口</text>
+
+  <text x="318" y="426" text-anchor="middle" font-size="22" font-weight="700" fill="#222">⑥</text>
+  <text x="318" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Goldfish Memory</text>
+  <text x="318" y="468" text-anchor="middle" font-size="13" fill="#666">金鱼记忆</text>
+
+  <line x1="251" y1="482" x2="386" y2="482" stroke="#ddd" stroke-width="1"/>
+
+  <text x="318" y="504" text-anchor="middle" font-size="12" fill="#444">跨会话失忆</text>
+  <text x="318" y="524" text-anchor="middle" font-size="12" fill="#444">重问已答问题</text>
+  <text x="318" y="544" text-anchor="middle" font-size="12" fill="#444">前后方案矛盾</text>
+
+  <rect x="271" y="566" width="95" height="28" rx="14" fill="#3a4a5a"/>
+  <text x="318" y="585" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">I 告知</text>
+
+  <!-- ============ 卡片 7：⑦ Error Snowball ============ -->
+  <rect x="422" y="376" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="422" y="376" width="175" height="22" rx="6" fill="#5a7a6a"/>
+  <rect x="422" y="390" width="175" height="8" fill="#5a7a6a"/>
+  <text x="509" y="392" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Agent 多步执行</text>
+
+  <text x="509" y="426" text-anchor="middle" font-size="22" font-weight="700" fill="#222">⑦</text>
+  <text x="509" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Error Snowball</text>
+  <text x="509" y="468" text-anchor="middle" font-size="13" fill="#666">误差雪球</text>
+
+  <line x1="442" y1="482" x2="577" y2="482" stroke="#ddd" stroke-width="1"/>
+
+  <text x="509" y="504" text-anchor="middle" font-size="12" fill="#444">小错被放大</text>
+  <text x="509" y="524" text-anchor="middle" font-size="12" fill="#444">基于错果继续</text>
+  <text x="509" y="544" text-anchor="middle" font-size="12" fill="#444">越走越偏</text>
+
+  <rect x="442" y="566" width="135" height="28" rx="14" fill="#5a4a4a"/>
+  <text x="509" y="585" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">V 验证 + R 校准</text>
+
+  <!-- ============ 卡片 8：⑧ Toolbox Paradox ============ -->
+  <rect x="613" y="376" width="175" height="240" rx="6" fill="#fff" stroke="#666" stroke-width="1.2"/>
+  <rect x="613" y="376" width="175" height="22" rx="6" fill="#5a7a6a"/>
+  <rect x="613" y="390" width="175" height="8" fill="#5a7a6a"/>
+  <text x="700" y="392" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Agent 多步执行</text>
+
+  <text x="700" y="426" text-anchor="middle" font-size="22" font-weight="700" fill="#222">⑧</text>
+  <text x="700" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Toolbox Paradox</text>
+  <text x="700" y="468" text-anchor="middle" font-size="13" fill="#666">工具箱悖论</text>
+
+  <line x1="633" y1="482" x2="768" y2="482" stroke="#ddd" stroke-width="1"/>
+
+  <text x="700" y="504" text-anchor="middle" font-size="12" fill="#444">工具数量 ↑</text>
+  <text x="700" y="524" text-anchor="middle" font-size="12" fill="#444">准确率 ↓</text>
+  <text x="700" y="544" text-anchor="middle" font-size="12" fill="#444">调用链过长</text>
+
+  <rect x="653" y="566" width="95" height="28" rx="14" fill="#3a3a4a"/>
+  <text x="700" y="585" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C 约束</text>
+
+  <!-- 底部说明 -->
+  <rect x="40" y="640" width="748" height="44" fill="#f5f5f5" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <text x="414" y="660" text-anchor="middle" font-size="13" font-weight="700" fill="#444">读图方式</text>
+  <text x="414" y="678" text-anchor="middle" font-size="12" fill="#666">这八个陷阱根植于 AI 的原理本身，CIVR 就是从它们反推出来的最小完备解。</text>
+</svg>

@@ -1,0 +1,104 @@
+{
+  // ============================================================
+  // ⚠️ 本文件为 JSONC 格式（JSON with Comments），Claude Code 原生支持。
+  //    如果你的工具不支持注释，请先删除所有 // 开头的行再使用。
+  // ============================================================
+  // 来源：《驾驭AI编程》第3章（3.2 硬约束 - 权限配置实操卡片）
+  // 用法：复制到项目 .claude/settings.json
+  // 更新：根据项目需求修改，能用白名单就别用黑名单
+  //
+  // 三级权限模型：
+  //   deny  — 直接禁止，AI 绕不过去
+  //   ask   — 需要你确认后才能执行
+  //   allow — 自动放行，不打断 AI 工作流
+  //
+  // 原则（第 3 章）：
+  //   - 把精力花在不可逆操作上，可逆的让 AI 放手去做
+  //   - 能用白名单就别用黑名单（黑名单列不完）
+  //   - 约束的严格程度应该匹配它保护的东西的价值
+  // ============================================================
+
+  "permissions": {
+    // ── deny: 不可逆操作，直接禁止 ──
+    // AI 做什么是你按不了 Ctrl+Z 的？那就 deny 它
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -r *)",
+      "Bash(rm *)",
+
+      // 禁止直接执行网络请求（可能泄露数据或调用生产 API）
+      "Bash(curl *)",
+      "Bash(wget *)",
+
+      // 禁止直接操作数据库删除/修改
+      "Bash(DROP *)",
+      "Bash(DELETE *)",
+      "Bash(TRUNCATE *)",
+
+      // 禁止修改 Git 历史（不可逆）
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git rebase*)",
+
+      // 禁止安装全局包（影响系统环境）
+      "Bash(npm install -g*)",
+      "Bash(pip install*)"
+    ],
+
+    // ── ask: 有副作用但可能需要的操作，每次确认 ──
+    "ask": [
+      // 推送代码需要确认
+      "Bash(git push*)",
+
+      // 修改依赖需要确认
+      "Bash(npm install*)",
+      "Bash(npm uninstall*)",
+
+      // 数据库写操作需要确认
+      "Bash(INSERT*)",
+      "Bash(UPDATE*)",
+
+      // Docker 操作需要确认
+      "Bash(docker*)",
+
+      // 修改配置文件需要确认
+      "Edit(*.env*)",
+      "Edit(*config*)",
+      "Edit(*migration*)"
+    ],
+
+    // ── allow: 安全操作，自动放行 ──
+    // 可逆操作 + 开发常用命令，不打断 AI 工作流
+    "allow": [
+      // 构建与测试（可逆，放手做）
+      "Bash(npm run *)",
+      "Bash(npm test*)",
+      "Bash(npx *)",
+      "Bash(mvn *)",
+      "Bash(python -m pytest*)",
+
+      // Git 读操作
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git branch*)",
+
+      // Git 本地写操作（可逆）
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git checkout -b*)",
+      "Bash(git stash*)",
+
+      // 文件读取
+      "Bash(cat *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+
+      // 代码编辑（src 目录）
+      "Edit(src/*)",
+      "Edit(tests/*)",
+      "Edit(test/*)"
+    ]
+  }
+}

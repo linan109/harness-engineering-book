@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect width="800" height="640" fill="#fff"/>
+
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-size="20" font-weight="700" fill="#222">信任校准矩阵：该验多深？</text>
+  <text x="400" y="62" text-anchor="middle" font-size="13" fill="#888">X 轴 = 任务复杂度 · Y 轴 = 失败后果严重度</text>
+
+  <!-- 矩阵主体：80~720 × 100~580 -->
+
+  <!-- 四象限底色：统一浅灰，靠位置和文字本身区分 -->
+  <!-- Q2 左上：标准验证(后果驱动) 简单+重 -->
+  <rect x="80" y="100" width="320" height="240" fill="#f2f2f2" stroke="#888" stroke-width="1"/>
+  <!-- Q1 右上：深度验证 复杂+重 -->
+  <rect x="400" y="100" width="320" height="240" fill="#e6e6e6" stroke="#666" stroke-width="1.2"/>
+  <!-- Q3 左下：轻验证 简单+轻 -->
+  <rect x="80" y="340" width="320" height="240" fill="#fafafa" stroke="#999" stroke-width="1"/>
+  <!-- Q4 右下：标准验证(复杂度驱动) 复杂+轻 -->
+  <rect x="400" y="340" width="320" height="240" fill="#ededed" stroke="#888" stroke-width="1"/>
+
+  <!-- 象限标题 -->
+  <text x="240" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#222">标准验证</text>
+  <text x="240" y="155" text-anchor="middle" font-size="13" fill="#444">（后果驱动 · 简单 + 重）</text>
+
+  <text x="560" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#222">深度验证</text>
+  <text x="560" y="155" text-anchor="middle" font-size="13" fill="#444">（复杂 + 重）</text>
+
+  <text x="240" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#222">轻验证</text>
+  <text x="240" y="395" text-anchor="middle" font-size="13" fill="#444">（简单 + 轻）</text>
+
+  <text x="560" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#222">标准验证</text>
+  <text x="560" y="395" text-anchor="middle" font-size="13" fill="#444">（复杂度驱动 · 复杂 + 轻）</text>
+
+  <!-- 各象限的策略要点 -->
+  <text x="240" y="190" text-anchor="middle" font-size="13" fill="#222">· 涉及安全/金钱/隐私必走</text>
+  <text x="240" y="210" text-anchor="middle" font-size="13" fill="#222">· 四层验证全跑一遍</text>
+
+  <text x="560" y="190" text-anchor="middle" font-size="13" fill="#222">· 四层验证 + 双翻译</text>
+  <text x="560" y="210" text-anchor="middle" font-size="13" fill="#222">· 关键路径人工审</text>
+  <text x="560" y="230" text-anchor="middle" font-size="13" fill="#222">· 红蓝对抗</text>
+
+  <text x="240" y="430" text-anchor="middle" font-size="13" fill="#222">· 编译过 + 测试过即可</text>
+  <text x="240" y="450" text-anchor="middle" font-size="13" fill="#222">· AI训练数据覆盖充分</text>
+
+  <text x="560" y="430" text-anchor="middle" font-size="13" fill="#222">· 重点审边界条件</text>
+  <text x="560" y="450" text-anchor="middle" font-size="13" fill="#222">· 重点审异常路径</text>
+
+  <!-- 数据点：12 个示例（每个象限 3 个） -->
+  <!-- Q1 深度验证 -->
+  <circle cx="540" cy="265" r="5" fill="#222"/>
+  <text x="550" y="269" text-anchor="start" font-size="12" font-weight="600" fill="#222">加密签名校验</text>
+
+  <circle cx="490" cy="295" r="5" fill="#222"/>
+  <text x="500" y="299" text-anchor="start" font-size="12" font-weight="600" fill="#222">支付回调</text>
+
+  <circle cx="600" cy="320" r="5" fill="#222"/>
+  <text x="610" y="324" text-anchor="start" font-size="12" font-weight="600" fill="#222">权限提升</text>
+
+  <!-- Q2 标准(后果) -->
+  <circle cx="170" cy="265" r="5" fill="#222"/>
+  <text x="180" y="269" text-anchor="start" font-size="12" font-weight="600" fill="#222">用户注册 CRUD</text>
+
+  <circle cx="200" cy="295" r="5" fill="#222"/>
+  <text x="210" y="299" text-anchor="start" font-size="12" font-weight="600" fill="#222">表单校验</text>
+
+  <circle cx="240" cy="320" r="5" fill="#222"/>
+  <text x="250" y="324" text-anchor="start" font-size="12" font-weight="600" fill="#222">RESTful 端点</text>
+
+  <!-- Q3 轻验证 -->
+  <circle cx="140" cy="490" r="5" fill="#222"/>
+  <text x="150" y="494" text-anchor="start" font-size="12" font-weight="600" fill="#222">CSS 样式调整</text>
+
+  <circle cx="170" cy="520" r="5" fill="#222"/>
+  <text x="180" y="524" text-anchor="start" font-size="12" font-weight="600" fill="#222">日志格式化</text>
+
+  <circle cx="210" cy="545" r="5" fill="#222"/>
+  <text x="220" y="549" text-anchor="start" font-size="12" font-weight="600" fill="#222">脚本参数解析</text>
+
+  <!-- Q4 标准(复杂度) -->
+  <circle cx="510" cy="490" r="5" fill="#222"/>
+  <text x="520" y="494" text-anchor="start" font-size="12" font-weight="600" fill="#222">复杂正则</text>
+
+  <circle cx="540" cy="520" r="5" fill="#222"/>
+  <text x="550" y="524" text-anchor="start" font-size="12" font-weight="600" fill="#222">时区转换</text>
+
+  <circle cx="580" cy="545" r="5" fill="#222"/>
+  <text x="590" y="549" text-anchor="start" font-size="12" font-weight="600" fill="#222">并发状态管理</text>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="580" x2="745" y2="580" stroke="#333" stroke-width="1.6"/>
+  <polygon points="745,580 735,575 735,585" fill="#333"/>
+  <text x="745" y="602" text-anchor="end" font-size="14" font-weight="600" fill="#222">任务复杂度 →</text>
+  <text x="80" y="602" text-anchor="start" font-size="12" fill="#777">简单</text>
+  <text x="720" y="602" text-anchor="end" font-size="12" fill="#777">复杂</text>
+
+  <line x1="80" y1="580" x2="80" y2="85" stroke="#333" stroke-width="1.6"/>
+  <polygon points="80,85 75,95 85,95" fill="#333"/>
+  <text x="95" y="92" text-anchor="start" font-size="14" font-weight="600" fill="#222">↑ 失败后果严重度</text>
+  <text x="68" y="580" text-anchor="end" font-size="12" fill="#777">轻</text>
+  <text x="68" y="115" text-anchor="end" font-size="12" fill="#777">重</text>
+</svg>
