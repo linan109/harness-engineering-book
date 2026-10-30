@@ -1,13 +1,14 @@
 # 《驾驭AI编程：从古法手作到工业化生产》配套资源
 
-这里提供书中的配置模板、检查清单、代码练习、图表与阅读资料。围绕四个动作组织：**C 约束、I 告知、V 验证、R 校准**。
+这里提供书中的实践手册、配置模板、检查清单、代码练习、图表与阅读资料。围绕四个动作组织：**C 约束、I 告知、V 验证、R 校准**。
 
-本次资源核对：2026-10-30。实践手册等最终版确认后再补充；现有资源的变更见[更新记录](CHANGELOG.md)。
+本次资源核对：2026-10-30。[配套实践手册](manuals/实践手册.md)已按作者提供的出版社排版PDF整理为Markdown，覆盖非研发岗位职场人、工程师、学生和研发团队四类读者。现有资源的变更见[更新记录](CHANGELOG.md)。
 
 ## 从你正在遇到的问题开始
 
 | 你想做什么 | 从这里开始 |
 |---|---|
+| 按自己的身份完成一组实践 | [配套实践手册](manuals/实践手册.md)：办公提效、编程入门、学生练习、团队协作 |
 | 在自己的项目里用起来 | [CIVR十问](checklists/civr-quickcheck.md) → [通用项目规则](templates/claude-md/general.md) |
 | 配置工具的权限与检查 | [Claude Code配置说明](templates/settings/README.md)、[Cursor规则说明](templates/cursorrules/README.md) |
 | 让团队使用同一套约定 | [团队AGENTS.md模板](templates/agents-md/team.md) |
@@ -72,4 +73,4 @@ python -B -m unittest discover -s tests -v
 
 作者：李楠。公众号：**CIVR笔记**，分享AI开发实践，也欢迎读者留言交流。
 
-本仓库自有代码、模板、清单和图表按[MIT License](LICENSE)提供。书籍正文与未来提供的正式手册不因此自动适用MIT；外链资料和第三方引用仍按各自权利人的许可使用。
+本仓库自有代码、模板、清单和图表按[MIT License](LICENSE)提供。书籍正文与[配套实践手册](manuals/实践手册.md)不适用本仓库的MIT许可；外链资料和第三方引用仍按各自权利人的许可使用。
