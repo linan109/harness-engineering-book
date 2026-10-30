@@ -1,66 +1,20 @@
-# AI编程工具全景图 (Appendix D)
+# AI编程工具全景图（附录D配套）
 
-本图展示AI编程工具按自主程度分类的全景坐标系，核心洞察：工具越自主，所需的Harness就越强。
+本图按常见使用方式区分工具，展示自主执行范围与Harness需求的关系。位置是教学示意，不是产品能力排名；同一产品可能提供多种模式，实际边界取决于所选模式、权限和运行环境。产品名沿用本配套的示例名，不提供实时价格、用户数或市场份额。
 
 ![AI编程工具全景坐标系](tool-landscape.svg)
 
 ## Mermaid 源码
 
 ```mermaid
-graph LR
-    subgraph legend["核心规律：自主程度 ↑ = Harness需求 ↑"]
-        direction LR
-        L1["低自主<br/>低Harness"] -.-> L2["中自主<br/>中Harness"] -.-> L3["高自主<br/>高Harness"] -.-> L4["很高自主<br/>很高Harness"]
-    end
-
-    style legend fill:#f8f9fa,color:#333
-```
-
-```mermaid
 graph TB
-    subgraph T1["第一类：代码补全"]
-        direction TB
-        T1H["自主程度：低（你打字，它预测）<br/>Harness需求：低（天然受限）"]
-        T1A["GitHub Copilot<br/>2000万用户，市场份额42%"]
-        T1B["通义灵码<br/>1300万下载，国内企业领先"]
-        T1C["文心快码<br/>百度生态"]
-    end
-
-    subgraph T2["第二类：IDE Agent"]
-        direction TB
-        T2H["自主程度：中（对话+多文件编辑）<br/>Harness需求：中（需规则文件）"]
-        T2A["Cursor<br/>ARR 20亿美元，增长最快SaaS"]
-        T2B["Trae（字节跳动）<br/>600万用户，国内份额41.2%"]
-        T2C["Windsurf（Codeium）<br/>已被Devin收购"]
-    end
-
-    subgraph T3["第三类：CLI Agent"]
-        direction TB
-        T3H["自主程度：高（终端自主执行）<br/>Harness需求：高（完整CIVR体系）"]
-        T3A["Claude Code<br/>ARR约25亿美元"]
-        T3B["Codex CLI（OpenAI）<br/>开源，160万周活"]
-        T3C["Aider<br/>开源，repo map架构"]
-    end
-
-    subgraph T4["第四类：云端Agent"]
-        direction TB
-        T4H["自主程度：很高（云端全自主）<br/>Harness需求：很高（任务设计即Harness）"]
-        T4A["Devin<br/>估值102亿美元"]
-        T4B["Codex Cloud（OpenAI）<br/>单次最长6小时"]
-        T4C["Copilot Coding Agent<br/>GitHub Actions集成"]
-    end
-
-    subgraph T5["第五类：平台类"]
-        direction TB
-        T5H["自主程度：中（生成即部署）<br/>Harness需求：中（面向产品验证）"]
-        T5A["Bolt.new"]
-        T5B["Replit Agent"]
-        T5C["Lovable"]
-    end
-
+    T1["代码补全<br/>GitHub Copilot、通义灵码、文心快码<br/>由人决定是否接受建议"]
+    T2["IDE Agent<br/>Cursor、TRAE、Windsurf<br/>关注修改范围、规则加载与结果验证"]
+    T3["CLI Agent<br/>Claude Code、Codex CLI、Aider<br/>关注执行权限、任务边界与验证闭环"]
+    T4["云端Agent<br/>Devin、Codex Cloud、Copilot Coding Agent<br/>关注隔离环境、任务契约与交付验收"]
+    T5["平台类<br/>Bolt.new、Replit Agent、Lovable<br/>关注数据边界、部署权限与产品验收"]
     T1 --> T2 --> T3 --> T4
     T5 -.-> T2
-
     style T1 fill:#69db7c,color:#333
     style T2 fill:#ffd43b,color:#333
     style T3 fill:#ffa94d,color:#333
@@ -70,18 +24,22 @@ graph TB
 
 ## 工具全景对照表
 
-| 工具类别 | 代表产品 | 自主程度 | Harness需求度 | 典型场景 | 上下文获取方式 |
-|----------|----------|----------|--------------|---------|---------------|
-| 代码补全 | Copilot、通义灵码、Tabnine | 低（你打字，它预测） | 低（天然受限） | 日常敲代码加速 | 当前文件 + 打开的Tab |
-| IDE Agent | Cursor、Trae、Windsurf | 中（对话+多文件编辑） | 中（需规则文件） | 深度参与项目开发 | Embedding + 向量检索（预索引） |
-| CLI Agent | Claude Code、Codex CLI、Aider | 高（终端自主执行） | 高（完整CIVR体系） | 复杂多步骤任务 | 按需搜索（ripgrep/glob/repo map） |
-| 云端Agent | Devin、Codex Cloud、Copilot Agent | 很高（云端全自主） | 很高（任务设计即Harness） | 长时间自主作业 | 云端沙盒克隆仓库 |
-| 平台类 | Bolt.new、Replit Agent、Lovable | 中（生成即部署） | 中（面向产品验证） | 快速原型、非工程师 | 平台内置环境 |
+| 常见使用方式 | 代表产品 | 使用时重点检查 | 典型任务 |
+|--------------|----------|----------------|----------|
+| 代码补全 | GitHub Copilot、通义灵码、文心快码 | 建议是否符合当前上下文和业务规则 | 日常编码 |
+| IDE Agent | Cursor、TRAE、Windsurf | 规则是否加载、改动范围是否合适 | 项目开发 |
+| CLI Agent | Claude Code、Codex CLI、Aider | 命令权限、文件边界和验证证据 | 多步骤开发任务 |
+| 云端Agent | Devin、Codex Cloud、Copilot Coding Agent | 环境隔离、契约完整性和交付验收 | 异步委派任务 |
+| 平台类 | Bolt.new、Replit Agent、Lovable | 数据边界、部署权限和产物可维护性 | 原型与产品验证 |
 
-## 选择决策树
+SVG只列代表产品的子集，名称与本表一致。各类的上下文获取和权限实现因工具而异，不能仅凭类别推断其具体机制。
 
-- 加速日常编码 --> Copilot / 通义灵码
-- AI深度参与项目 --> Cursor / Trae
-- 多步骤自主任务 --> Claude Code / Codex CLI
-- 长时间自主执行 --> Devin / Codex Cloud（需确认：任务是否真的不需要中间干预？）
-- 国内企业采购 --> 通义灵码（企业）/ Trae CN（个人）
+## 选择时先检查任务
+
+- 只需补全：优先选择容易逐项审阅建议的模式。
+- 需要跨文件修改：先准备项目上下文、明确可改范围和验收方式。
+- 需要多步骤执行：确认权限边界、检查点和失败恢复方法。
+- 需要异步委派：先写清任务契约、可用环境与交付证据。
+- 需要产品原型：确认数据与部署边界，再验证关键用户流程。
+
+自主执行范围越大，通常越需要明确的CIVR；验证深度还取决于失败后果，不能只看工具类别。

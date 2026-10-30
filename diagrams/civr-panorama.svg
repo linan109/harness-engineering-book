@@ -20,7 +20,7 @@
   <text x="110" y="177" text-anchor="middle" font-size="12" fill="#555">权限分级</text>
   <text x="110" y="197" text-anchor="middle" font-size="12" fill="#555">工具裁剪</text>
   <text x="110" y="217" text-anchor="middle" font-size="12" fill="#555">范围锁定</text>
-  <text x="110" y="237" text-anchor="middle" font-size="12" fill="#555">不可逆操作拦截</text>
+  <text x="110" y="237" text-anchor="middle" font-size="12" fill="#555">危险操作事前控制</text>
   <text x="110" y="257" text-anchor="middle" font-size="12" fill="#555">Hook/Pre-commit</text>
   <text x="110" y="275" text-anchor="middle" font-size="10" fill="#aaa">第3章</text>
 
@@ -29,7 +29,7 @@
   <text x="290" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#333">I 告知 Inform</text>
 
   <rect x="210" y="155" width="160" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
-  <text x="290" y="177" text-anchor="middle" font-size="12" fill="#555">CLAUDE.md</text>
+  <text x="290" y="177" text-anchor="middle" font-size="12" fill="#555">AGENTS.md / Rules</text>
   <text x="290" y="197" text-anchor="middle" font-size="12" fill="#555">上下文分层加载</text>
   <text x="290" y="217" text-anchor="middle" font-size="12" fill="#555">隐性知识外化</text>
   <text x="290" y="237" text-anchor="middle" font-size="12" fill="#555">负面上下文</text>
@@ -42,9 +42,9 @@
 
   <rect x="380" y="155" width="160" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
   <text x="460" y="177" text-anchor="middle" font-size="12" fill="#555">四层验证</text>
-  <text x="460" y="197" text-anchor="middle" font-size="12" fill="#555">双翻译法</text>
+  <text x="460" y="197" text-anchor="middle" font-size="12" fill="#555">代码反述比需求</text>
   <text x="460" y="217" text-anchor="middle" font-size="12" fill="#555">Spec驱动开发</text>
-  <text x="460" y="237" text-anchor="middle" font-size="12" fill="#555">测试纪律</text>
+  <text x="460" y="237" text-anchor="middle" font-size="12" fill="#555">独立测试＋人审</text>
   <text x="460" y="257" text-anchor="middle" font-size="12" fill="#555">Diff审查五步法</text>
   <text x="460" y="275" text-anchor="middle" font-size="10" fill="#aaa">第5章</text>
 
@@ -53,13 +53,19 @@
   <text x="630" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#333">R 校准 Redirect</text>
 
   <rect x="550" y="155" width="160" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
-  <text x="630" y="177" text-anchor="middle" font-size="12" fill="#555">三层诊断</text>
+  <text x="630" y="177" text-anchor="middle" font-size="12" fill="#555">代码／设计／需求</text>
   <text x="630" y="197" text-anchor="middle" font-size="12" fill="#555">停止信号</text>
   <text x="630" y="217" text-anchor="middle" font-size="12" fill="#555">换思路/换模型</text>
   <text x="630" y="237" text-anchor="middle" font-size="12" fill="#555">新对话交接</text>
   <text x="630" y="257" text-anchor="middle" font-size="12" fill="#555">翻车→规则闭环</text>
   <text x="630" y="275" text-anchor="middle" font-size="10" fill="#aaa">第6章</text>
 
+  <g font-size="10" fill="#666" text-anchor="middle">
+    <text x="110" y="300">主要陷阱：⑧⑨</text>
+    <text x="290" y="300">主要陷阱：②③⑥⑦</text>
+    <text x="460" y="300">主要陷阱：①⑤</text>
+    <text x="630" y="300">主要陷阱：④⑤</text>
+  </g>
   <!-- 底部：三层 -->
   <line x1="60" y1="310" x2="660" y2="310" stroke="#ddd" stroke-width="0.8"/>
 

@@ -38,8 +38,8 @@
   <text x="560" y="210" text-anchor="middle" font-size="13" fill="#222">· 关键路径人工审</text>
   <text x="560" y="230" text-anchor="middle" font-size="13" fill="#222">· 红蓝对抗</text>
 
-  <text x="240" y="430" text-anchor="middle" font-size="13" fill="#222">· 编译过 + 测试过即可</text>
-  <text x="240" y="450" text-anchor="middle" font-size="13" fill="#222">· AI训练数据覆盖充分</text>
+  <text x="240" y="430" text-anchor="middle" font-size="13" fill="#222">· 核对输出与关键边界</text>
+  <text x="240" y="450" text-anchor="middle" font-size="13" fill="#222">· 根据风险检查结果</text>
 
   <text x="560" y="430" text-anchor="middle" font-size="13" fill="#222">· 重点审边界条件</text>
   <text x="560" y="450" text-anchor="middle" font-size="13" fill="#222">· 重点审异常路径</text>
@@ -88,7 +88,7 @@
   <!-- 坐标轴 -->
   <line x1="80" y1="580" x2="745" y2="580" stroke="#333" stroke-width="1.6"/>
   <polygon points="745,580 735,575 735,585" fill="#333"/>
-  <text x="745" y="602" text-anchor="end" font-size="14" font-weight="600" fill="#222">任务复杂度 →</text>
+  <text x="400" y="628" text-anchor="middle" font-size="14" font-weight="600" fill="#222">任务复杂度 →</text>
   <text x="80" y="602" text-anchor="start" font-size="12" fill="#777">简单</text>
   <text x="720" y="602" text-anchor="end" font-size="12" fill="#777">复杂</text>
 

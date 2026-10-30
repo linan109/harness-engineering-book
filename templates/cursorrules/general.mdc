@@ -1,0 +1,82 @@
+---
+description: CIVR project collaboration, scope, and verification rules
+globs:
+alwaysApply: true
+---
+
+# Project Rules
+
+<!-- 来源：《驾驭AI编程》第3—6章；使用前填写占位信息并删除不适用条目。 -->
+
+## Project context
+
+Project: [项目名称]
+Stack: [语言与版本 / 框架 / 数据库]
+Purpose: [项目目标与当前阶段]
+Authoritative docs: [权威资料入口，避免重复维护事实]
+
+```text
+[入口] → [核心服务] → [数据库]
+                    ↓
+            [异步处理] → [外部服务]
+```
+
+Key constraints: [例如“通知可以延迟，订单不能丢失”]
+Rejected choices: [已否决方案及原因；没有则删除]
+
+## Build and verification commands
+
+```text
+dev:   [开发命令]
+test:  [测试命令]
+lint:  [静态检查命令]
+build: [构建命令]
+```
+
+## Constrain: scope and authority
+
+- Read the relevant project instructions and existing code before changes.
+- Work within the current task's authorized scope. Preserve unrelated dirty work.
+- For payment, authentication, migrations, deployment, and CI, identify the task's
+  permitted level: investigation, controlled implementation, or production execution.
+  Authorization for one level does not automatically authorize the next.
+- Do not read secrets or `.env*` files. Use redacted examples and documented interfaces.
+- Ask before dependency installation or external publication unless already authorized.
+- Explain a necessary scope or architecture change before implementing it.
+- These are model instructions. Enforce sensitive boundaries with tool permissions,
+  service accounts, and operating-system controls as appropriate.
+
+## Inform: project knowledge
+
+- Read nearby code, interface contracts, and representative tests for conventions.
+- Cite file locations for factual claims; distinguish evidence from guesses.
+- Ask about missing requirements that materially change behavior. Resolve routine
+  implementation details from the existing project.
+- Keep current goals, confirmed decisions, and verification evidence in a short handoff
+  when moving to a new chat. Do not assume another chat has this conversation.
+
+## Verify: check the actual result
+
+- When tests fail, first investigate the implementation and the failure evidence.
+  If requirements changed or a test is wrong, explain the proposed test change and
+  make that change within existing authorization or obtain confirmation first.
+- Do not weaken assertions, skip tests, or extend timeouts merely to make checks pass.
+- Add tests proportionate to the change and its risk; avoid tests that restate code.
+- Run the relevant checks. Report what passed, what failed, and what remains unverified.
+- Passing tests supports the covered behavior only. Inspect side effects and use
+  visual or manual checks where they are needed.
+- Do not claim completion without evidence for the requested behavior.
+
+## Redirect: correct course
+
+- On unexpected results, inspect logs, inputs, and the failing path before patching.
+- Calibrate related problems together; separate unrelated problems.
+- If repeated patches do not address the cause, restore the goal and constraints,
+  then choose a concrete next diagnostic step. Do not keep stacking speculative fixes.
+
+## Code and security conventions
+
+- Follow the project's language, naming, error handling, and logging conventions.
+- Validate external input; use parameterized SQL and the project's API layer.
+- Do not hardcode secrets, suppress type errors without justification, use untrusted
+  input in shell commands, or disable TLS verification to hide an error.

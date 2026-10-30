@@ -1,7 +1,8 @@
 <!--
   来源：《驾驭AI编程》第3章（3.3 软约束 Spring Boot 示例）
   用法：复制到 Java/Spring Boot 项目根目录，重命名为 CLAUDE.md
-  更新：根据项目需求修改，删除不适用的部分
+  更新：根据项目需求修改，删除不适用的部分。
+  目录、数据库、异常和API规范均为示例约定，须替换为项目事实；命令须与项目配置一致。
 -->
 
 # [项目名称] — Spring Boot Backend
@@ -19,7 +20,7 @@ Client → API Gateway → Controller → Service → Repository → DB
 ## Build & Test Commands
 
 ```bash
-# Build
+# Package without tests (不能据此宣称测试通过)
 mvn clean package -DskipTests
 
 # Run tests
@@ -37,9 +38,9 @@ mvn spotless:check
 
 ## Project Constraints
 
-<!-- 每条来自真实踩坑，给理由让 AI 遇到边界场景时能自己判断（第 3 章） -->
+<!-- 填入真实约束及理由，让 AI 理解取舍；不要把示例当作作者项目事实。 -->
 
-1. 依赖版本锁定 Spring Boot 2.7.x，不要升级到 3.x（3.x 跟我们的中间件不兼容）
+1. Spring Boot 使用 [当前版本]；兼容性依据：[实际依赖或迁移约束]，版本变化先评估影响
 2. 配置文件统一用 `application.yml`，不要生成 `.properties`
 3. 异常只抛自定义 `BusinessException`，禁止裸抛 `RuntimeException`
 4. 实体类用 Lombok `@Data`，不要手写 getter/setter
@@ -67,13 +68,15 @@ common/       → 公共工具
 
 ### Module Permissions
 
+以下为默认边界；任务明确授权后按范围执行。规则文件不代替账号权限和运行隔离。
+
 | Path | Permission | Reason |
 |------|-----------|--------|
 | `src/main/java/**/payment/` | **只读** | 支付核心，修改需架构师审查 |
 | `src/main/java/**/auth/` | **只读** | 认证鉴权，安全敏感 |
 | `src/main/java/**/config/` | **只读** | 配置类，手动维护 |
-| `src/main/resources/db/migration/` | **禁止创建/修改** | Flyway 迁移必须人工编写 |
-| `src/main/java/**/feature/` | AI 可读写 | 业务功能 |
+| `src/main/resources/db/migration/` | **默认只读** | 迁移编写、测试演练和实际执行分别明确授权与验证 |
+| `src/main/java/**/feature/` | 任务范围内可读写 | 业务功能 |
 
 ## Code Conventions
 
@@ -121,12 +124,13 @@ try { ... } catch (Exception e) { }  // 禁止空 catch
 
 ## Verification Rules
 
-- 禁止删除或修改已有测试用例，除非需求本身变更了测试预期
-- 测试失败时，修代码，不许改测试
-- 新增 Service 方法必须附带单元测试
-- 新增 Controller 端点必须附带集成测试
+- 测试失败时默认修代码，不得为了变绿而删测试、降低断言或跳过失败
+- 确需改测试，先说明需求变化或测试本身的错误，按已有授权或经确认后修改
+- 验证 Service 的关键业务行为、边界与事务失败路径
+- 根据端点风险覆盖参数、权限和集成行为，避免只复述实现的测试
 - 代码必须能 `mvn compile` 通过
 - 所有已有测试必须通过 `mvn test`
+- 报告实际命令、结果、已有失败及未验证范围；编译通过不代表数据库行为已验证
 
 ## Forbidden Patterns
 

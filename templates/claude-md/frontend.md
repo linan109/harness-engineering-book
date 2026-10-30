@@ -1,14 +1,17 @@
 <!--
   来源：《驾驭AI编程》第3章（约束）、第5章（验证）综合
   用法：复制到前端项目根目录，重命名为 CLAUDE.md
-  更新：根据项目需求修改，删除不适用的部分
+  更新：根据项目需求修改，删除不适用的部分。
+  下方目录、状态管理和代码风格是示例约定，不是通用最佳实践；命令须与项目脚本一致。
 -->
 
 # [项目名称] — Frontend
 
 ## Project Overview
 
-[React 18 / Vue 3 / Next.js 14 / ...] + [TypeScript 5.x] + [状态管理] + [UI 库]
+[框架及实际版本] + [TypeScript 版本] + [状态管理] + [UI 库]
+
+当前需求与设计入口：[路径]；已有决定及原因：[路径或简述]
 
 ```
 Pages/Routes → Components → Hooks/Composables → API Layer → Backend
@@ -70,17 +73,19 @@ src/
 
 ### Component Patterns
 
-- **组件不超过 200 行**。超过就拆分
+- 组件职责保持清晰；拆分以可理解性和复用需求为依据，不只看行数
 - **一个组件一个文件**，文件名 = 组件名（PascalCase）
 - **Props 必须定义 TypeScript interface**，不使用 `any`
 - **业务逻辑抽到 hooks / composables**，组件只负责渲染
-- **不在组件中直接调用 API**，通过 hooks 或 store 中转
+- **不在组件中直接调用 API**，通过 hooks / query 层中转
 
 ```tsx
 // 正确：逻辑在 hook 中
 function OrderList() {
   const { orders, isLoading, error } = useOrders();
   if (isLoading) return <Skeleton />;
+  if (error) return <ErrorMessage error={error} />;
+  if (orders.length === 0) return <EmptyOrders />;
   return <OrderTable data={orders} />;
 }
 
@@ -131,7 +136,7 @@ function OrderList() {
 
 ### Unit Tests
 
-- 工具函数 (`utils/`): **100% 覆盖**
+- 工具函数 (`utils/`): 覆盖业务边界和异常输入；覆盖率不能单独证明正确
 - Hooks: **核心逻辑必须测试**
 - 组件: 测试用户交互和关键渲染逻辑，不测样式
 - 测试框架: [Vitest / Jest] + [React Testing Library / Vue Test Utils]
@@ -144,12 +149,12 @@ function OrderList() {
 
 ## Verification Rules
 
-- 禁止删除或修改已有测试用例，除非需求本身变更了测试预期
-- 测试失败时，修代码，不许改测试
-- 新增页面/组件必须附带基本测试
-- 代码必须通过 `npm run typecheck` 和 `npm run lint`
-- **不得引入 `node_modules` 中不存在的包**（先 `npm install`）
-- 不得声称"已完成"而未提供浏览器运行验证
+- 测试失败时默认修代码，不得为了变绿而删测试、降低断言或跳过失败
+- 确需改测试，先说明需求变化或测试本身的错误，按已有授权或经确认后修改
+- 按风险验证关键交互、加载、空态和错误态；不为简单改动机械添加测试
+- 完成项目配置的类型检查、lint和必要测试；报告实际命令与结果
+- 引入新依赖前说明用途、版本及影响，按已有授权或经确认后安装；遵循项目锁文件
+- 界面行为需在浏览器实际验证；无法验证时明确说明，不以编译通过代替
 
 ## Forbidden Patterns
 
@@ -171,11 +176,13 @@ function OrderList() {
 
 ## Module Permissions
 
+以下是默认边界示例；任务明确授权后按范围执行。文字规则不能代替实际文件权限和工具配置。
+
 | Path | Permission | Reason |
 |------|-----------|--------|
-| `src/components/` | AI 可读写 | 组件开发 |
-| `src/pages/` | AI 可读写 | 页面开发 |
-| `src/api/` | AI 可读写（需审查） | API 层改动影响全局 |
+| `src/components/` | 任务范围内可读写 | 组件开发 |
+| `src/pages/` | 任务范围内可读写 | 页面开发 |
+| `src/api/` | 任务范围内可读写（需审查） | API 层改动影响全局 |
 | `public/` | **只读** | 静态资源手动管理 |
 | `.env*` | **禁止访问** | 环境变量含敏感信息 |
 | `package.json` | **需确认** | 依赖变更需人工审查 |

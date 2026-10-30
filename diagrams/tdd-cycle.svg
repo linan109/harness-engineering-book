@@ -11,10 +11,10 @@
   <!-- RED -->
   <rect x="40" y="55" width="180" height="100" rx="5" fill="#f5f5f5" stroke="#333" stroke-width="1.5"/>
   <text x="130" y="82" text-anchor="middle" font-size="20" font-weight="800" fill="#c33">RED</text>
-  <text x="130" y="102" text-anchor="middle" font-size="13" font-weight="600" fill="#333">人写测试</text>
+  <text x="130" y="102" text-anchor="middle" font-size="13" font-weight="600" fill="#333">人审定测试</text>
   <line x1="58" y1="112" x2="202" y2="112" stroke="#ddd" stroke-width="0.8"/>
   <text x="130" y="130" text-anchor="middle" font-size="11" fill="#555">定义"什么算对"</text>
-  <text x="130" y="146" text-anchor="middle" font-size="11" fill="#555">测试必须先失败</text>
+  <text x="130" y="146" text-anchor="middle" font-size="11" fill="#555">确认因目标行为而失败</text>
 
   <!-- 箭头 RED→GREEN -->
   <line x1="220" y1="105" x2="248" y2="105" stroke="#666" stroke-width="1.5" marker-end="url(#a8)"/>

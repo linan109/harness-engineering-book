@@ -17,37 +17,30 @@
   <!-- 冰山下方（深色，更宽） -->
   <polygon points="150,185 370,185 430,470 90,470" fill="#d0d0d0" stroke="#666" stroke-width="1.5"/>
 
-  <text x="260" y="222" text-anchor="middle" font-size="14" font-weight="700" fill="#333">人的护城河</text>
+  <text x="260" y="222" text-anchor="middle" font-size="14" font-weight="700" fill="#333">持续培养的能力</text>
 
   <line x1="150" y1="238" x2="370" y2="238" stroke="#aaa" stroke-width="0.8"/>
 
-  <text x="260" y="265" text-anchor="middle" font-size="13" font-weight="600" fill="#444">系统思维</text>
-  <text x="260" y="283" text-anchor="middle" font-size="11" fill="#666">模块边界、架构取舍、长期演进</text>
-
-  <line x1="160" y1="298" x2="360" y2="298" stroke="#bbb" stroke-width="0.5"/>
-
-  <text x="260" y="320" text-anchor="middle" font-size="13" font-weight="600" fill="#444">领域知识</text>
-  <text x="260" y="338" text-anchor="middle" font-size="11" fill="#666">业务规则、历史包袱、隐性约束</text>
-
-  <line x1="160" y1="353" x2="360" y2="353" stroke="#bbb" stroke-width="0.5"/>
-
-  <text x="260" y="375" text-anchor="middle" font-size="13" font-weight="600" fill="#444">工程判断力</text>
-  <text x="260" y="393" text-anchor="middle" font-size="11" fill="#666">该做什么、不该做什么、什么时候停</text>
-
-  <line x1="160" y1="408" x2="360" y2="408" stroke="#bbb" stroke-width="0.5"/>
-
-  <text x="260" y="432" text-anchor="middle" font-size="13" font-weight="600" fill="#444">跨界整合</text>
-  <text x="260" y="450" text-anchor="middle" font-size="11" fill="#666">需求翻译、团队协作、产品直觉</text>
+  <text x="260" y="258" text-anchor="middle" font-size="13" font-weight="600" fill="#444">判断力</text>
+  <text x="260" y="275" text-anchor="middle" font-size="11" fill="#666">何时信任、何时验证、何时停</text>
+  <text x="260" y="300" text-anchor="middle" font-size="13" font-weight="600" fill="#444">领域知识</text>
+  <text x="260" y="317" text-anchor="middle" font-size="11" fill="#666">业务规则、历史包袱、隐性约束</text>
+  <text x="260" y="342" text-anchor="middle" font-size="13" font-weight="600" fill="#444">系统思维</text>
+  <text x="260" y="359" text-anchor="middle" font-size="11" fill="#666">模块边界、架构取舍、长期演进</text>
+  <text x="260" y="384" text-anchor="middle" font-size="13" font-weight="600" fill="#444">错误识别</text>
+  <text x="260" y="401" text-anchor="middle" font-size="11" fill="#666">识别看似正确的输出与遗漏</text>
+  <text x="260" y="426" text-anchor="middle" font-size="13" font-weight="600" fill="#444">跨领域组织能力</text>
+  <text x="260" y="443" text-anchor="middle" font-size="11" fill="#666">串联资源、协作流程与决策</text>
 
   <!-- 右侧标注 -->
-  <text x="420" y="100" text-anchor="start" font-size="11" fill="#999">可被替代</text>
-  <text x="420" y="116" text-anchor="start" font-size="11" fill="#999">进步最快</text>
+  <text x="420" y="100" text-anchor="start" font-size="11" fill="#999">辅助执行</text>
+  <text x="420" y="116" text-anchor="start" font-size="11" fill="#999">仍需验证</text>
   <line x1="375" y1="105" x2="416" y2="105" stroke="#ccc" stroke-width="0.8"/>
 
-  <text x="440" y="330" text-anchor="start" font-size="11" fill="#999">不可替代</text>
-  <text x="440" y="346" text-anchor="start" font-size="11" fill="#999">价值最高</text>
+  <text x="440" y="330" text-anchor="start" font-size="11" fill="#999">持续培养</text>
+  <text x="440" y="346" text-anchor="start" font-size="11" fill="#999">支持决策</text>
   <line x1="380" y1="335" x2="436" y2="335" stroke="#ccc" stroke-width="0.8"/>
 
   <!-- 底部 -->
-  <text x="260" y="490" text-anchor="middle" font-size="12" fill="#aaa">水面上越来越薄，水面下才是你的护城河</text>
+  <text x="260" y="490" text-anchor="middle" font-size="12" fill="#aaa">能力结构示意，不表示固定边界、面积比例或价值倍数</text>
 </svg>

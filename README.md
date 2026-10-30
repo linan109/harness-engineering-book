@@ -1,92 +1,75 @@
 # 《驾驭AI编程：从古法手作到工业化生产》配套资源
 
-> Companion resources for *Harness AI Programming: From Artisan Craft to Industrial Production*
+这里提供书中的配置模板、检查清单、代码练习、图表与阅读资料。围绕四个动作组织：**C 约束、I 告知、V 验证、R 校准**。
 
-本仓库是《驾驭AI编程》一书的配套资源库，提供书中提到的配置模板、检查清单、代码示例和提示词模板。
+本次资源核对：2026-10-30。实践手册等最终版确认后再补充；现有资源的变更见[更新记录](CHANGELOG.md)。
 
-**书的核心方法论：CIVR框架**
-- **C**onstrain（约束）：给AI画安全边界
-- **I**nform（告知）：把你知道的告诉AI
-- **V**erify（验证）：确认AI做的是对的
-- **R**edirect（校准）：当AI走偏了怎么办
+## 从你正在遇到的问题开始
 
-## 仓库结构
+| 你想做什么 | 从这里开始 |
+|---|---|
+| 在自己的项目里用起来 | [CIVR十问](checklists/civr-quickcheck.md) → [通用项目规则](templates/claude-md/general.md) |
+| 配置工具的权限与检查 | [Claude Code配置说明](templates/settings/README.md)、[Cursor规则说明](templates/cursorrules/README.md) |
+| 让团队使用同一套约定 | [团队AGENTS.md模板](templates/agents-md/team.md) |
+| 长任务换会话、交接不丢状态 | [上下文自检](checklists/context-health.md)、[HANDOFF模板](templates/handoff/HANDOFF.md) |
+| 判断结果是否做对、走偏后怎样处理 | [验证规则](checklists/verify-rules.md)、[校准清单](checklists/redirect.md) |
+| 跑一个完整的小练习 | [支付回调](examples/code/payment-callback/README.md)、[购物车优惠](examples/code/cart-discount-exercise/README.md) |
+| 理解AI的能力与局限 | [九个能力陷阱](diagrams/pitfall-map.md)、[附录C学习路径](resources/reading-paths.md) |
+| 查找书中引用的资料 | [参考资料索引](resources/references.md) |
 
+## 使用模板
+
+先填写项目事实、删除不适用条目，再合并到现有文件。不要直接覆盖已有规则或配置。
+
+- **Claude Code：** 选择[通用](templates/claude-md/general.md)、[前端](templates/claude-md/frontend.md)或[Spring Boot](templates/claude-md/spring-boot.md)模板，按项目调整后放入`CLAUDE.md`。权限与Hook另按[配置说明](templates/settings/README.md)合并。
+- **Cursor：** 使用[general.mdc](templates/cursorrules/general.mdc)，按[说明](templates/cursorrules/README.md)放入`.cursor/rules/`并核对加载状态。
+- **团队：** 将[team.md](templates/agents-md/team.md)作为`AGENTS.md`的起点。按各工具支持的方式导入或生成适配文件，实际检查是否读取；不能假设所有工具都会自动加载同一个文件。
+
+文字约定、工具权限和运行环境隔离各有作用。模板里的路径、命令和技术选型都是需要裁剪的示例，不是安全保证。
+
+## 运行练习
+
+在本仓库根目录使用Python 3.10及以上版本，仅需标准库：
+
+```sh
+python -B examples/code/payment-callback/payment_callback.py
+python -B examples/code/cart-discount-exercise/cart_discount_reference.py
+python -B -m unittest discover -s tests -v
 ```
-├── templates/              配置模板（开箱即用）
-│   ├── claude-md/          CLAUDE.md 模板（通用/Spring Boot/前端）
-│   ├── settings/           .claude/settings.json 示例（权限/Hook）
-│   ├── cursorrules/        .cursorrules 模板（Cursor用户）
-│   ├── agents-md/          AGENTS.md 跨工具统一模板（团队用）
-│   └── handoff/            HANDOFF.md 多session交接模板
-├── checklists/             检查清单（可打印）
-│   ├── civr-quickcheck.md  CIVR 10个问题速查
-│   ├── inform.md           告知 Checklist
-│   ├── context-health.md   上下文健康度自检
-│   ├── verify-rules.md     验证规则（可直接粘贴到CLAUDE.md）
-│   ├── redirect.md         校准流程 Checklist
-│   └── crash-log.md        翻车记录模板
-├── examples/               示例
-│   ├── code/               代码示例（登录对比、Spec模板等）
-│   └── prompts/            提示词模板（代码考古、特征化测试等）
-├── diagrams/               参考图表（Mermaid格式）
-└── resources/              推荐阅读链接聚合
-```
 
-## 快速开始
+支付示例演示验签、幂等、状态变更和事务失败；购物车练习演示怎样发现优惠叠加错误。两者均为本地教学示例，详细契约和边界见各自README。
 
-### 个人使用
+[登录对比](examples/code/login-comparison/spec-template.md)仍是关键代码片段，依赖未提供的业务模块，不能直接当作完整登录服务运行。`without-spec.py`和`cart-discount-bug.py`保留了有意设计的错误，供对比练习。
 
-1. 把 `templates/claude-md/general.md` 复制到你的项目根目录，重命名为 `CLAUDE.md`
-2. 根据项目实际情况修改内容（删除不适用的部分）
-3. 把 `templates/settings/permissions.json` 复制到 `.claude/settings.json`
+## 资料与书的对应关系
 
-### 团队使用
+| 资源 | 对应内容 |
+|---|---|
+| [能力陷阱总图](diagrams/pitfall-map.md) | 第1章：AI能力与边界 |
+| [CIVR全景图](diagrams/civr-panorama.md)、[十问](checklists/civr-quickcheck.md) | 第2章：框架总览 |
+| 项目规则、权限配置、[告知清单](checklists/inform.md) | 第3—4章：约束与上下文 |
+| [支付回调](examples/code/payment-callback/README.md) | 第5章5.5节：规格与验证 |
+| [代码反述](examples/prompts/code-restatement.md)、[购物车练习](examples/code/cart-discount-exercise/README.md) | 第5章：双翻译；代码反述后与需求比较 |
+| [独立QA](examples/prompts/qa-independent-test.md)、[TDD图](diagrams/tdd-cycle.md)、[信任矩阵](diagrams/trust-matrix.md) | 第5章：独立测试与验证策略 |
+| [校准清单](checklists/redirect.md)、[交接](templates/handoff/HANDOFF.md)、[翻车记录](checklists/crash-log.md) | 第6章：校准与经验沉淀 |
+| [代码考古](examples/prompts/code-archaeology.md)、[特征化测试](examples/prompts/characterization-test.md)、团队规则 | 第7章：已有系统与团队协作 |
+| [能力冰山](diagrams/capability-iceberg.md) | 第8章：你的护城河 |
+| [学习路径](resources/reading-paths.md)、[推荐书单](diagrams/reading-lists.md) | 附录C：深入理解AI的推荐阅读 |
+| [工具分类示意](diagrams/tool-landscape.md) | 延伸阅读：工具形态，不是实时产品排行 |
 
-1. 把 `templates/agents-md/team.md` 复制到仓库根目录，重命名为 `AGENTS.md`
-2. 团队成员的工具配置（CLAUDE.md、.cursorrules）从 AGENTS.md 引用，不单独维护
-3. 用 `checklists/crash-log.md` 的格式维护团队的 AI 翻车记录
+图表提供Markdown说明、Mermaid源码与SVG展示图。九陷阱名称、顺序和主要CIVR映射已按终校图示同步；不表示仓库已与出版社最终排版稿逐字核对。
 
-### 校准与交接
+## 验证与维护
 
-1. 用 `checklists/redirect.md` 判断校准是否走偏
-2. 多session任务用 `templates/handoff/HANDOFF.md` 做交接
+- Python示例及Hook脚本有本地自动化测试；测试通过只说明被覆盖的行为，未包含真实支付、完整登录系统或生产部署。
+- Hook模板要求Claude Code **≥2.1.295**；本轮本机版本为2.1.282，尚未完成新版Claude会话内的加载与权限引擎验收。脚本子进程测试不能替代这一层验证。
+- Cursor规则已检查格式与使用说明，尚未做实际Cursor会话加载验收。
+- 7张SVG已解析、渲染并检查；Mermaid源码做了文本核对，未单独渲染验收。
 
-## 使用原则
+工具变化后应重新核对官方文档与实际行为。发现错误可提[Issue](https://github.com/linan109/harness-engineering-book/issues)，尽量附上工具版本、复现步骤、期望与实际结果；也欢迎补充实际使用中的经验。
 
-这些模板是**起点，不是终点**。书中反复强调：
+## 作者与许可
 
-- **约束不是越多越好。** 模板提供的是框架，你需要根据项目和团队裁剪
-- **工具适配层是消耗品。** AI工具迭代很快，模板会过时，原则不会
-- **用模板的过程本身就是CIVR的实践。** 你在决定保留哪些规则、删除哪些规则时，就是在做约束（C）和告知（I）
+作者：李楠。公众号：**CIVR笔记**，分享AI开发实践，也欢迎读者留言交流。
 
-## 与书的对应关系
-
-| 资源 | 对应章节 | CIVR维度 |
-|------|---------|---------|
-| CLAUDE.md 模板 | 第3章（约束）、第4章（告知） | C + I |
-| 权限配置 | 第3章（硬约束） | C |
-| Hook配置 | 第5章（验证纪律） | V |
-| 验证规则 | 第5章（验证纪律） | V |
-| 校准Checklist | 第6章（校准） | R |
-| HANDOFF.md | 第6章（开新对话） | R |
-| 代码考古提示词 | 第7章（已有系统） | I |
-| AGENTS.md | 第7章（团队协作） | C（团队层） |
-| 翻车记录 | 第6章（团队知识） | R（团队层） |
-
-## 贡献
-
-欢迎通过 PR 贡献：
-- 其他工具的配置模板（Windsurf、Copilot、TRAE等）
-- 其他语言/框架的 CLAUDE.md 模板
-- 实际使用中发现的改进
-
-## 许可
-
-MIT License
-
----
-
-**作者**：李楠 · 北大CS 2008
-
-**书籍**：《驾驭AI编程：从古法手作到工业化生产》（2026年出版）
+本仓库自有代码、模板、清单和图表按[MIT License](LICENSE)提供。书籍正文与未来提供的正式手册不因此自动适用MIT；外链资料和第三方引用仍按各自权利人的许可使用。

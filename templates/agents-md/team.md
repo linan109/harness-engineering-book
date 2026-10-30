@@ -1,9 +1,9 @@
 <!--
   来源：《驾驭AI编程》第7章（7.4 场景三：团队AI规则不统一 + AGENTS.md）
   用法：复制到项目根目录，重命名为 AGENTS.md
-        所有 AI 工具（Claude Code / Cursor / Copilot / TRAE / Windsurf）启动时读取此文件
-        工具特定的配置文件（CLAUDE.md / .cursorrules）从本文件生成或引用，不再单独维护
-  更新：团队统一维护，修改需 code review。规则由人编写，AI 不得自行修改本文件
+        作为团队规则的单一来源，按各工具支持的方式加载、导入或生成适配文件
+        不假设所有工具启动时自动读取；逐项验证加载范围与更新方式
+  更新：团队统一维护，修改需 code review。AI可按授权整理修改，不得自行改变团队约定
 
   核心原则（第 7 章）：
   - 约束只有一份，且存储在 Git 中
@@ -14,8 +14,9 @@
 # AGENTS.md — Team AI Development Rules
 
 > This file is the single source of truth for all AI coding tools in this project.
-> All team members' AI assistants read this same file.
-> Tool-specific configs (CLAUDE.md, .cursorrules) should reference or generate from this file.
+> Configure each tool to load these rules, then verify that it does so.
+> Tool-specific configs should import or generate from this file using supported mechanisms.
+> A plain-text link does not necessarily load its target. These rules are not a security sandbox.
 
 ## Project Identity
 
@@ -23,6 +24,8 @@ Project: [项目名称]
 Stack: [语言] / [框架版本] / [数据库] / [关键依赖]
 Team size: [人数]
 Repo: [仓库地址]
+
+Authoritative sources: [当前需求、架构和任务状态入口；注明已失效的旧决定]
 
 ## System Architecture
 
@@ -78,14 +81,14 @@ typecheck:  [命令]
 
 ### Module Permissions
 
-<!-- 给代码画安全地图，所有人的 AI 看到同一张图 -->
+<!-- 默认边界示例。明确任务授权后按范围执行；读取敏感数据也需要相应授权。 -->
 
 | Module | Permission | Owner | Reason |
 |--------|-----------|-------|--------|
-| `src/payment/` | **AI 不可修改** | [负责人] | 支付核心，修改需负责人审查 |
-| `src/auth/` | **AI 不可修改** | [负责人] | 认证模块，安全敏感 |
-| `src/features/` | AI 可自由修改 | — | 业务功能 |
-| `migrations/` | **AI 禁止创建/修改** | [DBA/负责人] | 迁移必须人工操作 |
+| `src/payment/` | **默认只读** | [负责人] | 获准修改后需支付状态及失败路径验证 |
+| `src/auth/` | **默认只读** | [负责人] | 获准修改后需安全审查与权限验证 |
+| `src/features/` | 任务范围内可读写 | [负责人] | 业务功能 |
+| `migrations/` | **默认只读** | [DBA/负责人] | 编写、演练、执行分别明确范围 |
 | `config/` | **只读** | [负责人] | 配置手动维护 |
 | `.env*` | **禁止访问** | — | 敏感信息 |
 
@@ -94,18 +97,18 @@ typecheck:  [命令]
 <!-- 第 7 章铁律二：一个文件一个负责人 -->
 <!-- 同一时间，一个文件只由一个人（或一个 Agent）修改 -->
 
-- Public modules (utils, common) changes go through **separate PRs**, not mixed with feature PRs
+- Shared-module changes identify an owner and all dependent callers; review shared wiring together with the feature that needs it
 - If you need to modify a file owned by someone else, coordinate first
 
 ## Verification Rules
 
 <!-- 第 5 章验证纪律，全团队统一执行 -->
 
-1. 禁止删除或修改已有测试用例，除非需求本身变更了测试预期
-2. 测试失败时，修代码，不许改测试
-3. 新增功能必须附带测试
-4. 所有代码必须能编译/运行，所有已有测试必须通过
-5. 不得声称"已完成"而未提供运行验证的输出
+1. 测试失败时默认修代码，不得为了变绿而删测试、降低断言或跳过失败
+2. 确需改测试，先说明需求变化或测试本身的错误，按已有授权或经确认后修改
+3. 按风险验证关键行为、边界和失败路径，不以测试数量代替覆盖质量
+4. 完成项目要求的构建与测试，区分已有失败、本次引入的问题和未验证范围
+5. 提供实际验证证据，区分分支完成、主干接收和实际用户流程可用
 6. 每个 PR 只做一件事（一个功能或一个 bug fix，不混在一起）
 
 ## Security Rules
@@ -133,21 +136,22 @@ typecheck:  [命令]
 - Every AI-generated PR must be reviewed by a human before merge
 - PR scope: one feature or one fix per PR, no mixed changes
 - AI "incidental" refactors (renaming, reformatting unrelated code) must be in separate PRs
-- CI failure 2x on same PR → escalate to human review
+- Repeated CI failures without new evidence → stop patching and review the diagnosis
 - Reviewer checks: scope creep (C), hidden assumptions (I), happy-path-only tests (V)
 
 ## AI Crash Log
 
 <!-- 第 6 章 6.8：从个人踩坑到团队知识 -->
-<!-- 维护在 docs/ai-lessons.md，每条 3-5 行 -->
-<!-- 格式：发生了什么 / 根因 / 新规则 -->
+<!-- 维护在 docs/ai-lessons.md，长证据用链接 -->
+<!-- 格式：发生了什么 / 证据 / 已确认原因与假设 / 恢复结果 / 后续措施 -->
 
 See `docs/ai-lessons.md` for team AI crash log.
-When AI makes an error that a rule should have prevented, the reviewer adds a new entry.
+Record reusable lessons with evidence. Decide whether a test, permission control or rule is needed; do not add a rule for every error.
 
 ## Maintenance
 
 - Owner: [团队负责人 / Tech Lead]
 - Review cycle: 每两周审查一次，删除过期规则
 - Change process: 修改本文件需提 PR，至少一人 approve
+- Loading check: 核实各工具的规则入口、作用范围和更新是否生效，不假设在用会话自动刷新
 - Last reviewed: [日期]

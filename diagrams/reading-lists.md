@@ -1,6 +1,6 @@
-# 推荐阅读 (Appendix E)
+# 推荐阅读 （延伸阅读）
 
-本文件整理附录E的四类推荐书单，提取书名、作者与推荐理由。
+本文件整理四类延伸阅读，提取书名、作者与推荐理由。附录C的学习资源与直达链接见[学习路径](../resources/reading-paths.md)，其他写作资料见[参考索引](../resources/references.md)。
 
 ![推荐阅读四张书单](reading-lists.svg)
 
@@ -27,18 +27,18 @@
 
 | 资源 | 作者/来源 | 推荐理由 |
 |------|----------|----------|
-| "Harness Engineering: leveraging Codex" | OpenAI Blog | 3人团队编写百万行代码的完整经验分享，本书核心参考资料 |
+| "Harness engineering: leveraging Codex in an agent-first world" | OpenAI Blog | 小团队借助Codex构建大型代码库的经验分享，本书核心参考资料 |
 | "Effective harnesses for long-running agents" | Anthropic | 长时运行Agent的实操指南 |
 | "Harness Engineering" | Martin Fowler / Birgitta Bockeler | 最平衡的分析文章，指出了OpenAI博客中的盲区 |
 | "How to Supervise Code You Can't Read" | Cassie Kozyrkov | 信任债务和双翻译习惯的原始出处 |
 | "Build the Harness, Not the Code" | Vitthal Mirji | 面向Staff/Principal级工程师的实操手册 |
 | 12-Factor Agents | Dex Horthy | 基于100+创始人访谈总结的Agent设计原则 |
-| Claude Code系统提示词 | GitHub | 解析Claude Code如何设计约束和Skills |
+| Claude Code系统提示词与社区逆向材料 | 社区整理 | 辅助观察约束与工具设计，不等于官方开源；具体机制以官方文档及实际版本为准 |
 
 ## 延伸思考
 
 | 书名 | 作者 | 推荐理由 |
 |------|------|----------|
-| 《思考，快与慢》 | Daniel Kahneman | 系统1（直觉）和系统2（理性）的框架。AI可视为极致的系统1——反应迅速但容易犯系统性错误 |
+| 《思考，快与慢》 | Daniel Kahneman | 系统1（直觉）和系统2（理性）的框架。可用于类比理解直觉判断与复核的分工；不能据此认定AI只有直觉、没有推理 |
 | 《反脆弱》 | Nassim Taleb | 优秀的系统不仅"不怕出错"，还能"从错误中变得更强"。Harness的校准循环正是反脆弱设计的体现 |
 | 《清单革命》 | Atul Gawande | 探讨为什么简单的检查清单能挽救生命。本书每章末尾的Checklist设计受此书影响颇深 |

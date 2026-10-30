@@ -1,97 +1,37 @@
 {
-  // ============================================================
-  // ⚠️ 本文件为 JSONC 格式（JSON with Comments），Claude Code 原生支持。
-  //    如果你的工具不支持注释，请先删除所有 // 开头的行再使用。
-  // ============================================================
-  // 来源：《驾驭AI编程》第5章（5.10 团队验证 - PostToolUse hook）
-  // 用法：复制到项目 .claude/settings.json，与 permissions 合并使用
-  // 更新：根据项目的测试/lint 命令修改
-  //
-  // 设计原则（第 5 章）：
-  //   - 让机器先过滤结构性问题，人只审判断性问题
-  //   - Hook 是硬约束：AI 编辑文件后自动跑 lint 和测试，不过就阻止继续
-  //   - 约束能下沉到系统层就下沉（第 3 章 3.5）
-  //
-  // Hook 触发时机：
-  //   PreToolUse  — AI 调用工具之前（拦截）
-  //   PostToolUse — AI 调用工具之后（验证）
-  // ============================================================
-
   "hooks": {
-    // ── PostToolUse: AI 编辑文件后自动验证 ──
-
-    "PostToolUse": [
-      {
-        // 每次 AI 编辑文件后自动运行 lint
-        // 不通过则阻止 AI 继续，强制先修复 lint 错误
-        "matcher": "Edit|Write",
-        "command": "npm run lint --quiet 2>&1 | head -50",
-        "onFailure": "block",
-        "description": "Auto-lint after file edit"
-      },
-      {
-        // 每次 AI 编辑 src/ 下的文件后自动运行相关测试
-        // 确保改动没有破坏已有功能
-        "matcher": "Edit(src/*)|Write(src/*)",
-        "command": "npm test -- --bail --quiet 2>&1 | tail -20",
-        "onFailure": "block",
-        "description": "Auto-test after source file edit"
-      },
-      {
-        // 每次 AI 编辑 TypeScript 文件后自动类型检查
-        "matcher": "Edit(*.ts)|Edit(*.tsx)|Write(*.ts)|Write(*.tsx)",
-        "command": "npx tsc --noEmit 2>&1 | head -30",
-        "onFailure": "block",
-        "description": "Type check after TypeScript edit"
-      }
-    ],
-
-    // ── PreToolUse: AI 执行操作前拦截 ──
-
     "PreToolUse": [
       {
-        // 阻止 AI 修改测试文件（第 5 章核心规则：测试失败时修代码，不许改测试）
-        // Anthropic 在 10 万行 C 代码项目中验证了这条规则的必要性
-        "matcher": "Edit(tests/*)|Edit(test/*)|Edit(*_test.*)|Edit(*Test.*)|Edit(*.test.*)",
-        "command": "echo '⛔ 禁止修改测试文件。测试失败时应修改源代码，而非修改测试。' && exit 1",
-        "onFailure": "block",
-        "description": "Block test file modification (Chapter 5 iron rule)"
-      },
-      {
-        // 阻止 AI 修改迁移文件
-        "matcher": "Edit(migrations/*)|Write(migrations/*)|Edit(db/migrate/*)|Write(db/migrate/*)",
-        "command": "echo '⛔ 禁止修改数据库迁移文件。迁移必须由人工创建和审查。' && exit 1",
-        "onFailure": "block",
-        "description": "Block migration file modification"
-      },
-      {
-        // 阻止 AI 访问环境变量文件
-        "matcher": "Edit(.env*)|Read(.env*)|Write(.env*)",
-        "command": "echo '⛔ 禁止访问 .env 文件。敏感信息不应进入 AI 上下文。' && exit 1",
-        "onFailure": "block",
-        "description": "Block .env file access"
+        "matcher": "Read|Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "-B",
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/file_policy.py"
+            ],
+            "timeout": 10,
+            "onFailure": "block"
+          }
+        ]
       }
-    ]
-  },
-
-  // ── 权限配置（与 hooks 配合使用） ──
-  // 详细权限模板见 permissions.json
-
-  "permissions": {
-    "deny": [
-      "Bash(rm -rf *)",
-      "Bash(git push --force*)"
     ],
-    "ask": [
-      "Bash(git push*)"
-    ],
-    "allow": [
-      "Bash(npm run *)",
-      "Bash(npm test*)",
-      "Bash(git status*)",
-      "Bash(git diff*)",
-      "Bash(git add*)",
-      "Bash(git commit*)"
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "-B",
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/check_python.py"
+            ],
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }

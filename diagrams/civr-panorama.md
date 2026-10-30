@@ -1,4 +1,4 @@
-# CIVR框架全景图 (Chapter 8, Section 8.4)
+# CIVR框架全景图（全书框架速览）
 
 全书核心CIVR框架的思维导图，中心为"Harness Engineering"，四个分支为约束、告知、验证、校准，每个分支展示关键子概念。作为读者合上书本前最后的记忆定格。
 
@@ -16,17 +16,18 @@ mindmap
         危险操作需确认
       工具裁剪
         砍掉不必要的工具
-        工具越少准确率越高
-        Vercel砍80%工具案例
+        按任务保留必要工具
+        用完成质量验证裁剪效果
       范围锁定
         限定可修改的文件/目录
         约束改动范围
-        AutoResearch单文件夹约束
-      对抗陷阱
-        ⑧ Toolbox Paradox
+        用任务卡固定改动边界
+      主要对应陷阱
+        ⑧ 误差雪球 Error Snowball
+        ⑨ 工具箱悖论 Toolbox Paradox
     I 告知 Inform
       上下文工程
-        CLAUDE.md/Rules文件
+        AGENTS.md与工具适配规则
         渐进式加载
         Push vs Pull两种机制
       项目地图
@@ -37,48 +38,51 @@ mindmap
         隐性知识显性化
         负面上下文（不要做什么）
         版本时效标注
-      对抗陷阱
-        ② The Unsaid
-        ③ Frozen in Time
-        ⑤ Context Rot
-        ⑥ Goldfish Memory
+      主要对应陷阱
+        ② 未言明的信息 The Unsaid
+        ③ 知识冻结 Frozen in Time
+        ⑥ 上下文腐烂 Context Rot
+        ⑦ 金鱼记忆 Goldfish Memory
     V 验证 Verify
       四层验证
         能跑（编译通过）
         做对（逻辑正确）
         性能（不是灾难）
-        安全（无隐蔽漏洞）
+        安全（检查关键风险）
       双翻译
-        AI代码→人类解释
-        交叉比对发现偏差
+        AI代码→自然语言描述
+        与原始需求比较找偏差
       Spec驱动
         自然语言定义"什么算对"
         验证前置于实现
       TDD循环
-        RED：人写测试
+        RED：人审定测试与预期
         GREEN：AI写实现
         REFACTOR：AI重构+人审查
-      对抗陷阱
-        ① Almost Right
-        ④ The Yes-Man
-        ⑦ Error Snowball
+      主要对应陷阱
+        ① 差一点就对了 Almost Right
+        ⑤ 自信地犯错 The Confident Error
     R 校准 Redirect
       诊断三层次
-        需求层（方向错了）
-        实现层（做法错了）
-        表达层（没说清楚）
+        代码层（局部逻辑或调用错误）
+        设计层（架构与方案有问题）
+        需求层（目标或问题定义有误）
       信号识别
-        三次相同反馈无改善
+        相同反馈反复无改善
         复杂度持续上升
         AI开始编造解释
       破解策略
         开新对话（重置上下文）
         换模型（不同视角）
         自己动手（人工接管）
-      对抗陷阱
-        ⑤ Context Rot
-        ⑦ Error Snowball
+      主要对应陷阱
+        ④ 应声虫 The Yes-Man
+        ⑤ 自信地犯错 The Confident Error
 ```
+
+主要对应陷阱的编号与标签见[九陷阱对照表](pitfall-map.md)。一个问题通常需要组合使用多个动作。
+
+独立测试会话可以读取需求、接口契约、输入输出结构和函数签名，避免先看实现再照着实现写断言。预期缺失时先列待确认项，由人审定。独立生成测试与“双翻译”是两种操作：双翻译将代码反述成自然语言，再与需求比较。
 
 ## CIVR与能力成长的飞轮
 
